@@ -16,3 +16,7 @@ Developer rules, formatting standards, and pair-programming skills.
 - **[grilling](./skills/grilling/SKILL.md)**: Stress-test plans and assumptions through structured questions.
 - **[research](./skills/research/SKILL.md)**: Investigate questions against primary sources with direct citations.
 - **[unslop](./skills/unslop/SKILL.md)**: Cut AI tells, fluff, and puffery from writing.
+
+## Sources
+
+Many skills are sourced, and sometimes adapted, from [pstack](https://github.com/poteto/pstack) and [mattpocock/skills](https://github.com/mattpocock/skills).
