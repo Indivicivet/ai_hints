@@ -2,6 +2,17 @@
 
 Developer rules, formatting standards, and pair-programming skills.
 
+## Gemini Setup
+
+~/.gemini/config/plugins.json:
+{
+  "entries": [
+    {
+      "path": "... repo folder ..."
+    }
+  ]
+}
+
 ## User-invoked
 
 - **[grill-me](./skills/grill-me/SKILL.md)**: Relentless interview to resolve every branch of a design tree.
