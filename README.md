@@ -13,6 +13,8 @@ Developer rules, formatting standards, and pair-programming skills.
   ]
 }
 
+and add "... repo folder .../" to Antigravity settings -> General -> File Access Rules
+
 ## User-invoked
 
 - **[grill-me](./skills/grill-me/SKILL.md)**: Relentless interview to resolve every branch of a design tree.
