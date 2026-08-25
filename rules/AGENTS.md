@@ -12,7 +12,7 @@
 ## Development Workflow
 - Zero Unsolicited Edits: You are strictly forbidden from editing code unrelated to the specific task. If you see "bad" code in a different function, ignore it unless it causes a breaking error for the current task. You may make any edits to fully achieve the goal requested and no further.
 - No Extra Refactoring: Do not simplify logic, rename variables, or change structure unless explicitly asked to "Refactor" or the code is being heavily modified for the current task. This also means you should not add random comments to other bits of code.
-- You may assume any packages/dependencies are installed. You only need to check and install them if you encounter an ImportError / missing package error.
+- You do NOT need to run python -c import blah to check packages are installed. You may assume any packages / dependencies are installed. You only need to check and install them if you encounter an ImportError / missing package error.
 - When doing scratch work to check functionality, such as inspect data manually in python, if your scratch work amounts to more than a couple of lines, you should work in a fixed scratch file for each task. This is so I can give you permission once and you can do variations on the script without added permission. If your scratch work could be useful in the final output, consider placing it in an appropriate place in the working directory; however if it's purely gaining an intermediate understanding, then it's ok to stay in brain/.
 - You should check your outputs if you are in any doubt. If you produce image output you must look at the images visually.
 
