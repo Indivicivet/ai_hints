@@ -1,6 +1,6 @@
 ---
 name: assume-installed
-description: Assume Python packages and dependencies are already installed. Do not run pre-flight import checks or pip list commands. Run code directly and only install if an ImportError occurs.
+description: Use when tempted to check if a package is installed, verify Python dependencies, run `python -c import`, or before running code that uses third-party libraries.
 ---
 
 # Assume packages are installed
