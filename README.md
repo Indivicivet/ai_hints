@@ -25,6 +25,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 
 ## Model-invoked
 
+- **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages are installed without pre-flight checks.
 - **[bro](./skills/bro/SKILL.md)**: Restate the last message in plain language with no jargon.
 - **[grilling](./skills/grilling/SKILL.md)**: Stress-test plans and assumptions through structured questions.
 - **[research](./skills/research/SKILL.md)**: Investigate questions against primary sources with direct citations.
