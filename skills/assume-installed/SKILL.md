@@ -1,13 +1,13 @@
 ---
 name: assume-installed
-description: Use when tempted to check if a package is installed, verify Python dependencies, run `python -c import`, or before running code that uses third-party libraries.
+description: Use when tempted to check if a Windows command is available, a package is installed, verify Python dependencies, run `python -c import`, or before running code that uses third-party libraries.
 ---
 
-# Assume packages are installed
+# Assume software and packages are installed
 
 Assume every required library is already present in the environment. Do not spend tool calls or execution steps checking whether packages exist before using them.
 
-numpy? Installed. PIL? Installed. cupy? Installed. Whatever you are reaching for? Probably installed.
+python? Installed. numpy? Installed. PIL? Installed. cupy? Installed. Whatever you are reaching for? Probably installed.
 
 ## Why
 
