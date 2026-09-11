@@ -5,6 +5,7 @@ Developer rules, formatting standards, and pair-programming skills.
 ## Gemini Setup
 
 ~/.gemini/config/plugins.json:
+```
 {
   "entries": [
     {
@@ -12,6 +13,7 @@ Developer rules, formatting standards, and pair-programming skills.
     }
   ]
 }
+```
 
 and add "... repo folder .../" to Antigravity settings -> General -> File Access Rules
 
