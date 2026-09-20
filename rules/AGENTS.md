@@ -18,7 +18,7 @@
 
 ## Completion Requirements
 - Verify any modifications you made - check that ALL modifications in the diff relate DIRECTLY to the task you are currently working on. Check there are no random other changes to unrelated or unmodified code.
-- After modifying any Python files, you should immediately run `python -m black <file_path>` using the integrated terminal. Silent Execution: You do not need to ask for permission to run the black formatter; consider it part of the "Save" process.
+- After modifying any Python files, you should immediately run black using the integrated terminal; you can typically apply to the entire cwd with `python -m black .` . Silent Execution: You do not need to ask for permission to run the black formatter; consider it part of the "Save" process.
 
 ## Restricted Actions
 - Do not add or remove comments from *unrelated* parts of code. This does not prohibit you from, say, removing a "todo" comment when addressing that todo.
