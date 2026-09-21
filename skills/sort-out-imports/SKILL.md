@@ -3,7 +3,7 @@ name: sort-out-imports
 description: Tidy up imports in current Python work and make them explicit.
 ---
 
-Firstly call isort; if working in a directory, just directly call `python -m isort --profile black .`. If working only on specific files, then you can call with `python -m isort --profile black <file path>`. This will order imports into stdlib, thirdparty, firstparty, localfolder.
+Firstly call isort; if working in a directory, just directly call `python -m isort --profile black .`. If working only on one or two specific files, then you can call with `python -m isort --profile black <file path>`, but in general you can call on `.`. This will order imports into stdlib, thirdparty, firstparty, localfolder.
 
 Next, address any `from` imports in firstparty, and replace these with explicit imports; for example `from core_engine import Engine` should be replaced by `import core_engine`, and references to `Engine` should become `core_engine.Engine`, and so forth.
 
