@@ -16,6 +16,11 @@ BreakBeforeBraces: Attach
 BinPackArguments: false
 BinPackParameters: false
 
+# Alignment of function calls etc
+AlignAfterOpenBracket: BlockIndent
+InsertTrailingCommas: Wrapped
+AlignTrailingComments: false
+
 # Prevent cramming short blocks or functions onto a single line
 AllowShortBlocksOnASingleLine: Never
 AllowShortFunctionsOnASingleLine: None
