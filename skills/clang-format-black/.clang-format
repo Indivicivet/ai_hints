@@ -30,3 +30,7 @@ AllowShortLoopsOnASingleLine: false
 # Clean spacing around operators
 SpaceBeforeParens: ControlStatements
 SpacesInAngles: false
+
+# Just C++ things, independent of black style
+# modern C++ type-centric philosophy, rather than C philosophy
+PointerAlignment: Left
