@@ -20,6 +20,7 @@ BinPackParameters: false
 AlignAfterOpenBracket: BlockIndent
 InsertTrailingCommas: Wrapped
 AlignTrailingComments: false
+# AlignOperands: DontAlign  # undecided :)
 
 # Prevent cramming short blocks or functions onto a single line
 AllowShortBlocksOnASingleLine: Never
