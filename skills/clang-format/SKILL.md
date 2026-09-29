@@ -1,6 +1,6 @@
 ---
-name: clang-format
-description: Format C, C++, C#, Java, JavaScript, JSON, or Proto files using clang-format with the skill's bundled configuration.
+name: clang-format-black
+description: Format C, C++, C#, Java, JavaScript, JSON, or Proto files using clang-format with black-esque style.
 ---
 
 # Clang Format
@@ -12,18 +12,10 @@ Format code files matching clang-format supported languages (C/C++, Java, JavaSc
 When asked to run or apply `clang-format` on target files:
 
 1. Resolve the path to this skill's [.clang-format](./.clang-format) file (located in the same directory as this `SKILL.md`).
-2. Run `clang-format` in-place (`-i`), passing the resolved configuration path via `--style=file:<path-to-skill-.clang-format>`:
+2. Run `clang-format` in-place (`-i`), passing the resolved configuration path via `--style=file:<path-to-skill-dir>/.clang-format>`:
 
 ```powershell
 clang-format -i --style=file:"<path-to-this-skill-dir>/.clang-format" <path-to-file>
-```
-
-To format all matching source files in a target directory:
-
-```powershell
-Get-ChildItem -Path <target-dir> -Recurse -Include *.c,*.h,*.cpp,*.hpp,*.cc,*.cxx,*.cu,*.cuh | ForEach-Object {
-    clang-format -i --style=file:"<path-to-this-skill-dir>/.clang-format" $_.FullName
-}
 ```
 
 ## Options
