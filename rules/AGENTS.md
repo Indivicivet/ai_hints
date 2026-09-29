@@ -1,7 +1,6 @@
 # Project Rules & Guidelines
 
 ## Code & Formatting Standards
-- General code style: Try to keep consistent with the code nearby that you're modifying. Look in the current file, and if the current file is short or new, you can also pick a couple of adjacent files to compare style with. Style of these files should be your primary guidance.
 - Formatter: Follow 'Black' formatting rules (88 chars per line, double quotes, trailing commas). Run black to check.
 - Comments: Add comments with detailed explanation or "gotcha" notes where necessary. You do not generally need to add "self-explanatory" comments. Comments MUST NOT be included if they simply declare what a variable is in a way that could be otherwise made clear by a better choice of variable name.
 - Typing: Only use type hints when adding or modifying function signatures if this helps to clarify the types involved; don't bother with them if the types are highly variable (e.g. any arithmetic types). Don't bother with them if the code is already clear. Do not add types to existing code unless requested.
@@ -10,8 +9,7 @@
 - Avoid mutating arguments except in rare cases where this is the only clear way to implement an algorithm.
 
 ## Development Workflow
-- Zero Unsolicited Edits: You are strictly forbidden from editing code unrelated to the specific task. If you see "bad" code in a different function, ignore it unless it causes a breaking error for the current task. You may make any edits to fully achieve the goal requested and no further.
-- No Extra Refactoring: Do not simplify logic, rename variables, or change structure unless explicitly asked to "Refactor" or the code is being heavily modified for the current task. This also means you should not add random comments to other bits of code.
+- Zero Unsolicited Edits & Scope Boundaries: You are strictly forbidden from editing code or comments unrelated to the specific task. If you see "bad" code in a different function, ignore it unless it causes a breaking error for the current task. Do not simplify logic, rename variables, or change structure unless explicitly asked to "Refactor" or the code is being heavily modified for the current task. Do not add or remove comments from unrelated parts of code (removing a "TODO" comment when addressing that todo is allowed). You may make any edits to fully achieve the goal requested and no further.
 - You do NOT need to run python -c import blah to check packages are installed. You may assume any packages / dependencies are installed. You only need to check and install them if you encounter an ImportError / missing package error.
 - When doing scratch work to check functionality, such as inspect data manually in python, if your scratch work amounts to more than a couple of lines, you should work in a fixed scratch file for each task. This is so I can give you permission once and you can do variations on the script without added permission. If your scratch work could be useful in the final output, consider placing it in an appropriate place in the working directory; however if it's purely gaining an intermediate understanding, then it's ok to stay in brain/.
 - You should check your outputs if you are in any doubt. If you produce image output you must look at the images visually.
@@ -21,5 +19,4 @@
 - After modifying any Python files, you should immediately run black using the integrated terminal; you can typically apply to the entire cwd with `python -m black .` . Silent Execution: You do not need to ask for permission to run the black formatter; consider it part of the "Save" process.
 
 ## Restricted Actions
-- Do not add or remove comments from *unrelated* parts of code. This does not prohibit you from, say, removing a "todo" comment when addressing that todo.
 - You must NOT present any estimated numbers as facts, even implicitly. They MUST be indicated as estimates. You must avoid the pitfall of presenting fake data as real by always presenting it clearly as guessed.
