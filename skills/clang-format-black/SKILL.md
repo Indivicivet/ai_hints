@@ -22,3 +22,8 @@ clang-format -i --style=file:"<path-to-this-skill-dir>/.clang-format" <path-to-f
 
 - In-place modification: `-i`
 - Verification / dry-run only: `--dry-run --Werror`
+
+## If clang-format not found
+
+1. If not found, look in `$env:USERPROFILE\.vscode\extensions\ms-vscode.cpptools-*\LLVM\bin\clang-format.exe`.
+2. If still not found, check `C:\Program Files\LLVM\bin\clang-format.exe` or `C:\Program Files\Microsoft Visual Studio\2022\*\VC\Tools\Llvm\bin\clang-format.exe`.
