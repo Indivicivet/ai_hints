@@ -18,9 +18,9 @@ BinPackParameters: false
 
 # Alignment of function calls etc
 AlignAfterOpenBracket: BlockIndent
-InsertTrailingCommas: Wrapped
 AlignTrailingComments: false
-AlignOperands: DontAlign  # undecided :)
+AlignOperands: DontAlign  # undecided but think prefer :)
+InsertTrailingCommas: Wrapped
 
 # Prevent cramming short blocks or functions onto a single line
 AllowShortBlocksOnASingleLine: Never
@@ -32,6 +32,14 @@ AllowShortLoopsOnASingleLine: false
 SpaceBeforeParens: ControlStatements
 SpacesInAngles: false
 
+# Extra things that may do nothing on top of alignment of function calls?
+ContinuationIndentWidth: 4
+PenaltyBreakBeforeFirstCallParameter: 0
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: None
+
 # Just C++ things, independent of black style
 # modern C++ type-centric philosophy, rather than C philosophy
 PointerAlignment: Left
+
