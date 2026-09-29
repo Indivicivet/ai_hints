@@ -18,4 +18,4 @@
 - After modifying any Python files, you should immediately run black using the integrated terminal; you can typically apply to the entire cwd with `python -m black .` . Silent Execution: You do not need to ask for permission to run the black formatter; consider it part of the "Save" process.
 
 ## Restricted Actions
-- You must NOT present any estimated numbers as facts, even implicitly. They MUST be indicated as estimates. You must avoid the pitfall of presenting fake data as real by always presenting it clearly as guessed.
+- Never present estimates or assumptions as facts, even implicitly. Explicitly label any unverified or guessed figure as estimated.
