@@ -1,7 +1,7 @@
 # Project Rules & Guidelines
 
 ## Code & Formatting Standards
-- Formatter: Follow 'Black' formatting rules (88 chars per line, double quotes, trailing commas). Run black to check.
+- Formatter: For python, follow 'Black' formatting rules (88 chars per line, double quotes, trailing commas). Run black to check. For C++ use a similar style.
 - Comments: Add comments with detailed explanation or "gotcha" notes where necessary. You do not generally need to add "self-explanatory" comments. Comments MUST NOT be included if they simply declare what a variable is in a way that could be otherwise made clear by a better choice of variable name.
 - Typing: Only use type hints when adding or modifying function signatures if this helps to clarify the types involved; don't bother with them if the types are highly variable (e.g. any arithmetic types). Don't bother with them if the code is already clear. Do not add types to existing code unless requested.
 - Avoid single use variables - inline variables where possible, unless declaring them as a separate variable is used for debugging, or it makes it significantly clearer what something is for - typically including only at the use site is better.
@@ -16,6 +16,7 @@
 ## Completion Requirements
 - Verify any modifications you made - check that ALL modifications in the diff relate DIRECTLY to the task you are currently working on. Check there are no random other changes to unrelated or unmodified code.
 - After modifying any Python files, you should immediately run black using the integrated terminal; you can typically apply to the entire cwd with `python -m black .` . Silent Execution: You do not need to ask for permission to run the black formatter; consider it part of the "Save" process.
+- After modifying C++ files, use the `clang-format-black` skill. You do not need to ask for permission to use this skill.
 
 ## Restricted Actions
 - Never present estimates or assumptions as facts, even implicitly. Explicitly label any unverified or guessed figure as estimated.
