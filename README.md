@@ -20,6 +20,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 ## User-invoked
 
 - **[grill-me](./skills/grill-me/SKILL.md)**: Relentless interview to resolve every branch of a design tree.
+- **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional romanization (`ro`), translation (`tl`), and nuance explanation (`explain`).
 - **[wait-what](./skills/wait-what/SKILL.md)**: Re-pitch the last message in plain English with missing context.
 - **[principle-fix-root-causes](./skills/principle-fix-root-causes/SKILL.md)**: Trace bugs to root cause; no symptom-guard band-aids.
 - **[principle-laziness-protocol](./skills/principle-laziness-protocol/SKILL.md)**: Minimal diffs, flat call chains, and deletion over addition.
