@@ -1,44 +1,42 @@
 ---
 name: transcribe
-description: Transcribe text from images with optional romanization (ro), English translation (tl), and grammar or nuance notes (explain). Use when asked to transcribe, OCR, or read text from an image, or when given `/transcribe`.
+description: Transcribe text from images with optional romanization (ro | romanize), English translation (tl | translate), and grammar or nuance notes (ex | explain). Use when asked to transcribe, OCR, or read text from an image, or when given `/transcribe`.
 ---
 
 # Image transcription and translation
 
-Read text from images like screenshots, scans, photos, or manga. Default to East Asian languages (Japanese, Chinese) when ambiguous, but handle any language shown.
+Read text from images like screenshots, scans, photos, or manga. If presented with text, just carry out the appropriate romanization / translation / explanation requests.
 
 ## Arguments
 
 Check the words right after `/transcribe` or in the user's prompt:
 
-- `ro`: Add romanization. Pinyin with tones for Chinese, Hepburn romaji for Japanese, Revised Romanization for Korean.
-- `tl`: Add English translation.
-- `explain`: Pick the hardest single part of the text (slang, tricky grammar, polysemy, rare reading) and explain why it means what it means here.
+- `ro` or `romanize`: Add romanization. Pinyin with tones for Chinese, romaji for Japanese, etc.
+- `tl` or `translate`: Add English translation.
+- `ex` or `explain`: Pick the hardest one or two parts of the text (slang, tricky grammar, polysemy, rare reading) and explain why it means what it means here.`
+- `all`: Do all of the above, if applicable.
 
 Arguments combine in any order, like `/transcribe ro tl` or `/transcribe tl explain`.
 
 ## Rules
 
-1. **Default (no arguments)**: Output exact transcription only. Keep line breaks, punctuation, and original characters as they appear. Do not translate or romanize. Use `[?]` for unreadable characters.
-2. **With `ro`**: Romanize the full transcription. For Japanese, use the reading that matches the context, including names and ateji.
-3. **With `tl`**: Translate into natural English. Match the tone of the source (casual, formal, classical).
-4. **With `explain`**: Focus on one specific point that would trip up an intermediate learner. Skip obvious textbook grammar. State the exact word or structure, label what makes it tricky, and explain how it works in this sentence.
+1. **Default (no arguments)**: Output exact transcription only. Keep line breaks, punctuation, and original characters as they appear. Do not translate or romanize.
+2. **With `ro` or `romanize`**: Romanize the full transcription. For Japanese, use the reading that matches the context, including names and ateji.
+3. **With `tl` or `translate`**: Translate into natural English. Keep the translation literal. You may match the tone of the source (casual, formal, classical).
+4. **With `ex` or `explain`**: Focus on the main specific point or points that would trip up an intermediate learner. Skip obvious textbook grammar. State the exact word or structure, label what makes it tricky, and explain how it works in this sentence.
 
 ## Output format
 
-### Transcription
 [Original text]
 
-### Romanization
-<!-- Only include if ro was passed -->
+<!-- Only include if romanize was passed -->
 [Romanized text]
 
-### Translation
-<!-- Only include if tl was passed -->
+<!-- Only include if translate was passed -->
 [English translation]
 
-### Notes
 <!-- Only include if explain was passed -->
-- **Term**: `[Tricky word or phrase]`
-- **Why it is tricky**: [Grammar quirk, rare reading, slang, or nuance]
-- **Breakdown**: [How it works in this context]
+### Notes
+`[Tricky word or phrase]`:
+[Grammar quirk, rare reading, slang, or nuance]
+[followed by How it works in this context]
