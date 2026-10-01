@@ -1,63 +1,44 @@
 ---
 name: transcribe
-description: Transcribes text from images (especially Japanese, Chinese, and others) with optional arguments for romanization (ro), English translation (tl), and linguistic explanations (explain). Trigger via `/transcribe` or whenever asked to OCR or transcribe an image.
+description: Transcribe text from images with optional romanization (ro), English translation (tl), and grammar or nuance notes (explain). Use when asked to transcribe, OCR, or read text from an image, or when given `/transcribe`.
 ---
 
-# Image Transcription & Translation
+# Image transcription and translation
 
-Extract text accurately from images (photos, screenshots, scans, manga, documents) in any language (especially East Asian languages like Japanese and Chinese).
+Read text from images like screenshots, scans, photos, or manga. Default to East Asian languages (Japanese, Chinese) when ambiguous, but handle any language shown.
 
-## Argument Parsing Rules
+## Arguments
 
-Inspect the user's invocation string following `/transcribe` (or the accompanying prompt) for the following exact tokens:
+Check the words right after `/transcribe` or in the user's prompt:
 
-- **`ro`**: Enable **Romanization** (Pinyin with tone marks for Chinese; modified Hepburn romaji for Japanese; Revised Romanization for Korean; standard transliteration for others).
-- **`tl`**: Enable **English Translation**.
-- **`explain`**: Enable **Deep Linguistic Explanation** (breaks down the single most complex, nuanced, or difficult element of the text).
+- `ro`: Add romanization. Pinyin with tones for Chinese, Hepburn romaji for Japanese, Revised Romanization for Korean.
+- `tl`: Add English translation.
+- `explain`: Pick the hardest single part of the text (slang, tricky grammar, polysemy, rare reading) and explain why it means what it means here.
 
-*Note: Tokens can be combined freely (e.g., `/transcribe ro tl`, `/transcribe tl explain`, `/transcribe ro tl explain`).*
+Arguments combine in any order, like `/transcribe ro tl` or `/transcribe tl explain`.
 
----
+## Rules
 
-## Output Generation Rules
+1. **Default (no arguments)**: Output exact transcription only. Keep line breaks, punctuation, and original characters as they appear. Do not translate or romanize. Use `[?]` for unreadable characters.
+2. **With `ro`**: Romanize the full transcription. For Japanese, use the reading that matches the context, including names and ateji.
+3. **With `tl`**: Translate into natural English. Match the tone of the source (casual, formal, classical).
+4. **With `explain`**: Focus on one specific point that would trip up an intermediate learner. Skip obvious textbook grammar. State the exact word or structure, label what makes it tricky, and explain how it works in this sentence.
 
-1. **Default Mode (No Arguments)**:
-   - Provide verbatim transcription only.
-   - Strictly preserve layout, line breaks, punctuation, and original orthography (kanji, hanzi, kana, etc.).
-   - DO NOT translate, romanize, or add commentary unless requested.
-   - If a character is illegible or degraded, mark it as `[?]` or `[unclear: best_guess]`.
-
-2. **When `ro` is Present**:
-   - Provide the complete romanized text.
-   - For Japanese, ensure correct contextual kanji readings (nanori, ateji, or irregular readings).
-
-3. **When `tl` is Present**:
-   - Provide a natural, fluent English translation while staying faithful to tone and register (casual, keigo, classical, colloquial, etc.).
-
-4. **When `explain` is Present**:
-   - Identify the **single most challenging, subtle, or ambiguous component** in the passage.
-   - Categorize the difficulty (Grammar / Syntax / Polysemy / Idiom / Cultural nuance / Rare Kanji or Hanzi reading).
-   - Break down why it is tricky, how the components assemble, and why the chosen reading/interpretation applies in this context. Keep it sharp and insightful; avoid explaining elementary grammar.
-
----
-
-## Output Format
-
-Render sections in clean Markdown blocks:
+## Output format
 
 ### Transcription
-[Exact verbatim text in original script]
+[Original text]
 
 ### Romanization
-<!-- Render ONLY if 'ro' is present -->
-[Pinyin / Romaji / Transliteration]
+<!-- Only include if ro was passed -->
+[Romanized text]
 
 ### Translation
-<!-- Render ONLY if 'tl' is present -->
-[Natural English translation]
+<!-- Only include if tl was passed -->
+[English translation]
 
-### Linguistic Breakdown
-<!-- Render ONLY if 'explain' is present -->
-- **Focus Item**: `[Target phrase / pattern / character]`
-- **Category**: [e.g., Grammar nuance / Dialect / Rare vocab / Cultural idiom]
-- **Analysis**: [Concise breakdown of why it is difficult and how it functions here]
+### Notes
+<!-- Only include if explain was passed -->
+- **Term**: `[Tricky word or phrase]`
+- **Why it is tricky**: [Grammar quirk, rare reading, slang, or nuance]
+- **Breakdown**: [How it works in this context]
