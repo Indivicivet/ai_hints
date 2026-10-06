@@ -20,10 +20,10 @@ Arguments combine in any order, like `/transcribe ro tl` or `/transcribe tl expl
 
 ## Rules
 
-1. **Default (no arguments)**: Output exact transcription only. Keep line breaks, punctuation, and original characters as they appear. Do not translate or romanize.
-2. **With `ro` or `romanize` or `reading` or `pronunciation`**: Give pronunciation for the full transcription. For Japanese, use the reading that matches the context, including names and ateji.
-3. **With `tl` or `translate`**: Translate into natural English. Keep the translation literal. You may match the tone of the source (casual, formal, classical).
-4. **With `ex` or `explain`**: Focus on the main specific point or points that would trip up an intermediate learner. Skip obvious textbook grammar. State the exact word or structure, label what makes it tricky, and explain how it works in this sentence.
+1. Default (no arguments): Output exact transcription only. Keep line breaks, punctuation, and original characters as they appear. Do not translate or romanize.
+2. With `ro` or `romanize` or `reading` or `pronunciation`: Give pronunciation for the full transcription. For Japanese, use the reading that matches the context, including names and ateji.
+3. With `tl` or `translate`: Translate into natural English. Keep the translation literal. You may match the tone of the source (casual, formal, classical).
+4. With `ex` or `explain`: Focus on the main specific point or points that would trip up an intermediate learner. Skip obvious textbook grammar. State the exact word or structure, label what makes it tricky, and explain how it works in this sentence.
 
 ## Output format
 

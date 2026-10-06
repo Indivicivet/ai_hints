@@ -15,17 +15,17 @@ Pre-flight import checks (`python -c "import ..."`), `pip list` queries, and tes
 
 ## How to check if packages are installed
 
-1. **Write the code.** Import the libraries you need directly.
-2. **Run the code.** Execute the script or command immediately.
-3. **Let the runtime check for you.** If the script runs, every package was installed.
+1. Write the code: Import the libraries you need directly.
+2. Run the code: Execute the script or command immediately.
+3. Let the runtime check for you: If the script runs, every package was installed.
 
 ## Handling import errors
 
 Only inspect or install a package after encountering an explicit failure.
 
-1. **Verify the error.** Check the traceback. Confirm it is an actual `ModuleNotFoundError` or `ImportError`, not a typo in your import statement or a broken relative path.
-2. **Install the package.** Install only the specific missing package using the project environment manager (for example, `uv pip install <pkg>` or `pip install <pkg>`).
-3. **Re-run the command.** Continue with your original task.
+1. Verify the error: Check the traceback. Confirm it is an actual `ModuleNotFoundError` or `ImportError`, not a typo in your import statement or a broken relative path.
+2. Install the package: Install only the specific missing package using the project environment manager (for example, `uv pip install <pkg>` or `pip install <pkg>`).
+3. Re-run the command: Continue with your original task.
 
 ## Anti-patterns
 
