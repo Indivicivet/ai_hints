@@ -1,13 +1,13 @@
 ---
 name: desktop-gui
-description: Guidelines for building desktop GUIs in Python (PySide6) and C++ (Qt). Use when creating or editing desktop user interfaces.
+description: Guidelines for building desktop GUIs. Default to PySide6 (or Qt if C++ required). Use when creating or editing desktop user interfaces.
 ---
 
 # Desktop GUI
 
 ## Frameworks
 - Default to Python with PySide6. Assume PySide6 is already installed.
-- For C++, use Qt. Assume it is at `C:/Qt/` by default. If not found there, ask the user for their install path.
+- For C++, use Qt. Assume it is at `C:/Qt/` by default. If not found there, check most common locations, and otherwise ask the user for their install path.
 
 ## Controls
 - Pair every slider with a synced numeric spin box (`QSpinBox` or `QDoubleSpinBox`).
