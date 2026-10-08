@@ -30,12 +30,65 @@ def normalize_whitespace(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def rewrite_css_urls(css_text: str, base_url: str) -> str:
+    url_pattern = re.compile(r"""url\(\s*(['"]?)(.*?)\1\s*\)""", re.IGNORECASE)
+
+    def _replace(match):
+        rel = match.group(2).strip()
+        if not rel or rel.startswith("data:"):
+            return match.group(0)
+        abs_url = urllib.parse.urljoin(base_url, rel)
+        return f'url("{abs_url}")'
+
+    return url_pattern.sub(_replace, css_text)
+
+
+def extract_page_styles(soup: BeautifulSoup, base_url: str) -> list:
+    style_elements = []
+
+    for link in soup.find_all("link"):
+        rel = link.get("rel")
+        if not rel:
+            continue
+        rel_list = [r.lower() for r in (rel if isinstance(rel, list) else [rel])]
+        if "stylesheet" in rel_list or "preload" in rel_list:
+            href = link.get("href")
+            if href:
+                abs_href = urllib.parse.urljoin(base_url, href)
+                as_attr = f' as="{link.get("as")}"' if link.get("as") else ""
+                crossorigin = (
+                    ' crossorigin="anonymous"' if link.get("crossorigin") else ""
+                )
+                style_elements.append(
+                    f'<link rel="stylesheet" href="{html.escape(abs_href)}"{as_attr}{crossorigin}>'
+                )
+
+    for style in soup.find_all("style"):
+        css_content = style.string or style.get_text() or ""
+        if css_content.strip():
+            fixed_css = rewrite_css_urls(css_content, base_url)
+            style_elements.append(f"<style>\n{fixed_css}\n</style>")
+
+    return style_elements
+
+
 def resolve_relative_urls(soup: Tag, base_url: str):
     for tag in soup.find_all(True):
         if tag.get("src"):
             tag["src"] = urllib.parse.urljoin(base_url, tag["src"])
         if tag.get("href"):
             tag["href"] = urllib.parse.urljoin(base_url, tag["href"])
+        if tag.get("srcset"):
+            parts = tag["srcset"].split(",")
+            fixed_parts = []
+            for part in parts:
+                sub = part.strip().split()
+                if sub:
+                    sub[0] = urllib.parse.urljoin(base_url, sub[0])
+                    fixed_parts.append(" ".join(sub))
+            tag["srcset"] = ", ".join(fixed_parts)
+        if tag.get("style"):
+            tag["style"] = rewrite_css_urls(tag["style"], base_url)
 
 
 def get_visible_text_nodes(container: Tag):
@@ -289,7 +342,17 @@ def process_citation(item: dict, soup: BeautifulSoup, base_url: str):
     }
 
 
-def render_html_page(results: list) -> str:
+def render_html_page(results: list, page_styles: dict) -> str:
+    all_style_elements = []
+    seen_styles = set()
+    for styles in page_styles.values():
+        for s in styles:
+            if s not in seen_styles:
+                seen_styles.add(s)
+                all_style_elements.append(s)
+
+    head_styles = "\n  ".join(all_style_elements)
+
     cards = []
     for idx, res in enumerate(results, start=1):
         url = res.get("url", "")
@@ -297,11 +360,11 @@ def render_html_page(results: list) -> str:
 
         if res["status"] == "found":
             cards.append(
-                f'<div style="margin-bottom: 2rem; border: 1px solid #ccc; padding: 1rem;">\n'
-                f'  <div style="margin-bottom: 0.5rem; font-family: sans-serif;">\n'
-                f'    <strong>Citation #{idx}</strong> — Source: <a href="{escaped_url}" target="_blank">{escaped_url}</a>\n'
+                f'<div style="margin-bottom: 2.5rem; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); background-color: #fff;">\n'
+                f'  <div style="background-color: #f7f7f9; border-bottom: 1px solid #e1e4e8; padding: 0.75rem 1rem; font-family: system-ui, -apple-system, sans-serif; font-size: 0.9rem;">\n'
+                f'    <strong>Citation #{idx}</strong> — Source: <a href="{escaped_url}" target="_blank" rel="noopener noreferrer" style="color: #0366d6; text-decoration: underline;">{escaped_url}</a>\n'
                 f"  </div>\n"
-                f"  <div>\n"
+                f'  <div style="padding: 1.5rem; overflow-x: auto;">\n'
                 f'    {res["html_content"]}\n'
                 f"  </div>\n"
                 f"</div>"
@@ -316,12 +379,14 @@ def render_html_page(results: list) -> str:
             )
             escaped_q = html.escape(q_display)
             cards.append(
-                f'<div style="margin-bottom: 2rem; border: 1px solid #d9534f; background-color: #fff0f0; padding: 1rem; font-family: sans-serif;">\n'
-                f'  <div style="margin-bottom: 0.5rem;">\n'
-                f'    <strong>Citation #{idx} [FAILED]</strong> — Source: <a href="{escaped_url}" target="_blank">{escaped_url}</a>\n'
+                f'<div style="margin-bottom: 2.5rem; border: 1px solid #d9534f; border-radius: 8px; overflow: hidden; background-color: #fff0f0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">\n'
+                f'  <div style="background-color: #fce8e6; border-bottom: 1px solid #f5c6cb; padding: 0.75rem 1rem; font-family: system-ui, -apple-system, sans-serif; font-size: 0.9rem;">\n'
+                f'    <strong style="color: #a94442;">Citation #{idx} [FAILED]</strong> — Source: <a href="{escaped_url}" target="_blank" rel="noopener noreferrer" style="color: #0366d6;">{escaped_url}</a>\n'
                 f"  </div>\n"
-                f'  <p style="color: #d9534f; margin: 0 0 0.5rem 0;">{err}</p>\n'
-                f'  <p style="margin: 0;"><strong>Requested Quote(s):</strong> <code>{escaped_q}</code></p>\n'
+                f'  <div style="padding: 1.25rem; font-family: system-ui, -apple-system, sans-serif;">\n'
+                f'    <p style="color: #a94442; margin: 0 0 0.5rem 0; font-weight: 500;">{err}</p>\n'
+                f'    <p style="margin: 0;"><strong>Requested Quote(s):</strong> <code style="background-color: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 4px;">{escaped_q}</code></p>\n'
+                f"  </div>\n"
                 f"</div>"
             )
 
@@ -332,8 +397,18 @@ def render_html_page(results: list) -> str:
         "<head>\n"
         '  <meta charset="utf-8">\n'
         "  <title>Direct Web Citations</title>\n"
+        f"  {head_styles}\n"
+        "  <style>\n"
+        "    mark {\n"
+        "      background-color: #fff3a8 !important;\n"
+        "      color: inherit !important;\n"
+        "      padding: 0.1em 0.25em !important;\n"
+        "      border-radius: 3px !important;\n"
+        "      box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.25) !important;\n"
+        "    }\n"
+        "  </style>\n"
         "</head>\n"
-        '<body style="margin: 1.5rem; font-family: sans-serif;">\n'
+        '<body style="margin: 1.5rem; background-color: #fafbfc;">\n'
         f"{body_content}\n"
         "</body>\n"
         "</html>\n"
@@ -370,6 +445,7 @@ def main():
         sys.exit(2)
 
     cache = {}
+    page_styles = {}
     results = []
     has_failure = False
 
@@ -390,6 +466,8 @@ def main():
         try:
             raw_html = fetch_url(url, cache)
             soup = BeautifulSoup(raw_html, "html.parser")
+            if url not in page_styles:
+                page_styles[url] = extract_page_styles(soup, url)
             res = process_citation(item, soup, url)
             results.append(res)
             if res["status"] != "found":
@@ -405,7 +483,7 @@ def main():
             )
             has_failure = True
 
-    rendered_html = render_html_page(results)
+    rendered_html = render_html_page(results, page_styles)
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(rendered_html)
 
