@@ -36,4 +36,4 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 
 ## Sources
 
-Many skills are sourced, and sometimes adapted, from [pstack](https://github.com/poteto/pstack) and [mattpocock/skills](https://github.com/mattpocock/skills).
+Many skills are sourced, and sometimes adapted, from [pstack](https://github.com/cursor/plugins/tree/main/pstack) and [mattpocock/skills](https://github.com/mattpocock/skills).
