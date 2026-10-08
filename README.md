@@ -23,6 +23,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 - **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional romanization (`ro`), translation (`tl`), and nuance explanation (`explain`).
 - **[wait-what](./skills/wait-what/SKILL.md)**: Re-pitch the last message in plain English with missing context.
 - **[principle-fix-root-causes](./skills/principle-fix-root-causes/SKILL.md)**: Trace bugs to root cause; no symptom-guard band-aids.
+- **[principle-guard-the-context-window](./skills/principle-guard-the-context-window/SKILL.md)**: Route bulk payloads to subagents; keep context window clean.
 - **[principle-laziness-protocol](./skills/principle-laziness-protocol/SKILL.md)**: Minimal diffs, flat call chains, and deletion over addition.
 - **[principle-minimize-reader-load](./skills/principle-minimize-reader-load/SKILL.md)**: Fewer layers of indirection and reduced mutable state.
 
@@ -31,6 +32,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages are installed without pre-flight checks.
 - **[bro](./skills/bro/SKILL.md)**: Restate the last message in plain language with no jargon.
 - **[grilling](./skills/grilling/SKILL.md)**: Stress-test plans and assumptions through structured questions.
+- **[mathematical-audience](./skills/mathematical-audience/SKILL.md)**: Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
 - **[research](./skills/research/SKILL.md)**: Investigate questions against primary sources with direct citations.
 - **[unslop](./skills/unslop/SKILL.md)**: Cut AI tells, fluff, and puffery from writing.
 
