@@ -10,7 +10,10 @@
 - Avoid single use variables. Inline variables where possible, unless declaring them as a separate variable is used for debugging, or it makes it significantly clearer what something is for.
 - Never create redundant aliases for variables. If you are tempted to create aliases for "backwards compatibility", instead update all usages of the functionality to represent the new API; if it's a public interface, inform the user.
 - Imports: Use absolute imports. Do not reorganize existing imports unless a new one is required. If modifying existing imports, use the `sort-out-imports` skill.
-- Avoid mutating arguments except in rare cases where this is the only clear way to implement an algorithm. Avoid non-constant variables for similar reasons; it is ok for a scope to have one or two non-constant variables, or those that are only modified in a local segment, but use of mutation must be justifiable. Performance is a valid reason to mutate variables rather than allocating new ones.
+- Do not mutate function arguments.
+-- There may be exceptions: perfomance, mutation being needed to implement an algorithm sensibly, writing C/CUDA etc.
+-- Avoid non-constant variables for similar reasons; it is ok for a scope to have one or two non-constant variables, or those that are only modified in a local segment. Use of mutation must be justifiable.
+-- Overriding input values that default to None with conditional alternative values is fine.
 
 ## Development Workflow
 - Avoid unsolicited edits: You are forbidden from editing code unrelated to the specific task. If you see "bad" code in a different function, ignore it unless it causes a breaking error for the current task. Do not add or remove comments from unrelated parts of code (removing a "TODO" comment when addressing that todo is allowed). You may make any edits to fully achieve the goal requested and no further.
