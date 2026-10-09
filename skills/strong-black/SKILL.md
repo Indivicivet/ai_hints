@@ -39,9 +39,9 @@ Black strictly enforces line length (88 characters). When an inline comment, tup
 
 ## Remediation rules
 
-1. **Move comments above statements**: The primary cause of awkward black wrapping is inline/trailing comments pushing lines past 88 characters. Move the comment to the line immediately preceding the code.
-2. **Shorten or rephrase bloated comments**: If a comment wraps awkwardly, condense the wording while preserving technical detail.
-3. **Inline temporary variables if appropriate**: Per project guidelines, avoid single-use variables where direct inlining clarifies structure without line overflow.
-4. **Avoid `# fmt: off`**: Do not reach for `# fmt: off` / `# fmt: on` as a routine workaround. Only consider it for rare, highly structured tabular data or mathematical matrices where vertical column alignment is essential. If used, apply to the smallest possible block and document why.
-5. **No semantic changes**: Keep edits strictly limited to formatting, comment placement/wording, and structural layout. Do not alter program logic, variable names, or behavior.
-6. **Re-run black**: Always re-run `python -m black <target>` after editing to guarantee black leaves the file untouched.
+1. Move comments above statements: The primary cause of awkward black wrapping is inline comments pushing lines past 88 characters. Move them above the code.
+2. Shorten comments: Condense wording if a comment still wraps awkwardly.
+3. Inline temporary variables: Avoid single-use variables where direct inlining clarifies structure without line overflow.
+4. Avoid `# fmt: off`: Reserve for rare tabular data or matrices where vertical columns matter.
+5. Keep logic intact: Change layout, comment position, and spacing only. Leave logic and variables unchanged.
+6. Re-run black: Always re-run black after editing to verify it leaves the file untouched.
