@@ -11,6 +11,8 @@ Skills inject opinions, counteract model blind spots, and enforce non-obvious ta
 
 Before writing, figure out: what does an unprompted model do wrong here, and what opinion, guideline or piece of information overrides that? Has the user made it clear, or is it clear from the current model context that a fresh agent won't see?
 
+Override default model behavior. If an unprompted model already does it, do not write the skill. Target a specific bad habit or patterns the user doesn't approve of. If your first idea of what the skill looks like is your natural output, ask the user what you want to differ, and only include the difference in the skill.
+
 If the skill lacks an opinion that contradicts default LLM habits, it does not need to exist.
 
 ## Rules for drafting
