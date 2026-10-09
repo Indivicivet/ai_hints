@@ -54,7 +54,6 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 
 Engineering principles and discipline adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) (Lauren Tan / `@poteto`):
 
-- **[bro](./skills/bro/SKILL.md)**: Restate the last message in plain language with no jargon. (essentially unmodified)
 - **[principle-fix-root-causes](./skills/principle-fix-root-causes/SKILL.md)**: Trace bugs to root cause; no symptom-guard band-aids. (essentially unmodified)
 - **[principle-guard-the-context-window](./skills/principle-guard-the-context-window/SKILL.md)**: Route bulk payloads to subagents; keep context window clean. (essentially unmodified)
 - **[principle-laziness-protocol](./skills/principle-laziness-protocol/SKILL.md)**: Minimal diffs, flat call chains, and deletion over addition. (essentially unmodified)
