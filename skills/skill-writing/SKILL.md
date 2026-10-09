@@ -21,7 +21,7 @@ Keep it short, because instructions load into context on every use. Write direct
 
 Target specific model habits: Name the exact anti-pattern to stop and forbid it directly.
 
-Write sharp trigger descriptions: The description dictates when the skill loads. Name the exact cues, impulses, commands, or file patterns. Think about whether this works as a model invocable skill or whether the user only wants this specific behaviour when requested; if so, use `disable-model-invocation: true`.
+Write sharp trigger descriptions: The description dictates when the skill loads. Name the exact cues, impulses, commands, or file patterns.
    
 Do not write tutorials. Do not write full descriptions of entire systems that should be in a human-targeted README file instead. If you are tempted to do so, you can consider suggesting to the user that we write a README instead.
    

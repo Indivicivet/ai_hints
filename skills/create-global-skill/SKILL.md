@@ -19,6 +19,4 @@ Follow general `skill-writing` guidelines.
 
 Keep it universal. Omit project-specific paths, or repository tooling outside of `ai_hints`.
 
-3. Keep descriptions under three lines. State the exact trigger cues so the runtime loads it when needed and ignores it otherwise.
-
-5. After creating the file, register it in `<ai_hints_root>/README.md` under the custom skills section.
+After creating the file, register it in `<ai_hints_root>/README.md` under the custom skills section.
