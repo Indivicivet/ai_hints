@@ -13,7 +13,7 @@ Default scope: the entire project workspace unless the user names specific files
 
 1. Check git status to ensure working tree changes are understood or clean before formatting.
 2. Run black on the target scope (`python -m black <scope>`).
-3. Inspect `git diff` for awkward layout artifacts produced by line-length overflows or trailing comments.
+3. Inspect `git diff` for awkward layout artifacts produced by line-length overflows, trailing comments, or weird code structure. If Black's layout for an expression is acceptable, keep it.
 4. Manually edit those awkward sections so black formats them naturally.
 5. Re-run black on the edited files.
 6. Verify diffs are clean, readable, and fully compliant with black.
@@ -39,9 +39,11 @@ Black strictly enforces line length (88 characters). When an inline comment, tup
 
 ## Remediation rules
 
-1. Move comments above statements: The primary cause of awkward black wrapping is inline comments pushing lines past 88 characters. Move them above the code.
-2. Shorten comments: Condense wording if a comment still wraps awkwardly.
-3. Inline temporary variables: Avoid single-use variables where direct inlining clarifies structure without line overflow.
-4. Avoid `# fmt: off`: Reserve for rare tabular data or matrices where vertical columns matter.
-5. Keep logic intact: Change layout, comment position, and spacing only. Leave logic and variables unchanged.
-6. Re-run black: Always re-run black after editing to verify it leaves the file untouched.
+1. Formatting only, no structural refactors: Never convert expressions or ternaries into multi-line `if`/`elif`/`else` statements. Avoid introducing new variables unless there's no better way to solve the problem.
+2. Move whole-statement comments above: When a comment annotates an entire assignment or return statement and forces dangling parens, move it above the statement.
+3. Preserve clause-level and toggle comments: Do NOT move comments that belong to a specific sub-clause or contain toggleable code (e.g. `# * 4` or branch-specific explanations). Moving them destroys locality and ease of modification.
+4. Shorten comments: Condense wording if a comment still wraps awkwardly.
+5. You may occasionally inline temporary variables if this helps with awkwardly formatted code, but ONLY if this is helping black.
+6. Avoid `# fmt: off`: Reserve for rare tabular data or matrices where vertical columns matter.
+7. Keep logic intact: Change layout, comment position, and spacing only. Leave control flow, logic, and variables unchanged.
+8. Re-run black: Always re-run black after editing to verify it leaves the file untouched.
