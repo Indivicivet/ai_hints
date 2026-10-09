@@ -22,7 +22,7 @@ Default scope: the entire project workspace unless the user names specific files
 
 Black strictly enforces line length (88 characters). When an inline comment, tuple wrap, or expression barely exceeds that limit, black often splits code into visually jarring shapes:
 
-- **Dangling trailing comments**:
+- Dangling trailing comments wrapped in parens:
   ```python
   # Awkward:
   result = (
@@ -33,9 +33,9 @@ Black strictly enforces line length (88 characters). When an inline comment, tup
   # Here is a long comment explaining the calculation
   result = value
   ```
-- **Unnecessary multi-line splits from trailing commas or comments**: Single short arguments pushed onto new lines solely because of inline trailing comments.
-- **Awkward dictionary or list wraps**: Short collections split over 4 lines when minor trimming or moving an inline comment above keeps it compact and readable.
-- **Pointless parenthesis enclosures**: Single variable returns or assignments wrapped in parens just to accommodate line-trailing annotations.
+- Unnecessary multi-line splits from trailing commas or comments.
+- Short dicts or lists split over multiple lines due to inline comments.
+- Single returns wrapped in parens to accommodate line-trailing annotations.
 
 ## Remediation rules
 
