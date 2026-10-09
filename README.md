@@ -65,4 +65,3 @@ Workflows and feedback loops adapted from [mattpocock/skills](https://github.com
 
 - **[grilling](./skills/grilling/SKILL.md)**: Stress-test plans and assumptions through structured design-tree interview rounds. (Diverged: cleaned formatting/unicode artefacts, consolidated standalone prompt)
 - **[research](./skills/research/SKILL.md)**: Investigate questions against primary sources with direct citations. (essentially unmodified)
-- **[wait-what](./skills/wait-what/SKILL.md)**: Re-pitch the last message in plain English with missing context. (essentially unmodified)
