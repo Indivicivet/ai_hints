@@ -41,6 +41,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - **[mathematical-audience](./skills/mathematical-audience/SKILL.md)**: Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
 - **[pitch-higher](./skills/pitch-higher/SKILL.md)**: Nudge the last explanation a step higher in assumed competence and density.
 - **[pitch-lower](./skills/pitch-lower/SKILL.md)**: Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
+- **[refine-from-feedback](./skills/refine-from-feedback/SKILL.md)**: Diagnose agent mistakes or flawed prompt/skill guidance and update governing skills or AGENTS.md.
 - **[safe-commit](./skills/safe-commit/SKILL.md)**: Stage specific files, review staged diffs, and write structured commit messages.
 - **[skill-writing](./skills/skill-writing/SKILL.md)**: Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
 - **[sort-out-imports](./skills/sort-out-imports/SKILL.md)**: Tidy Python imports via isort and enforce explicit namespace imports.
