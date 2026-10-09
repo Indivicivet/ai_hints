@@ -9,14 +9,10 @@ Add a project-scoped skill to the active repository.
 
 ## Location
 
-Write the file to `<project-root>/.agents/skills/<skill-name>/SKILL.md`. If the repository does not use `.agents/skills/` but already has a top-level `skills/` folder, follow that existing pattern instead.
+Write the file to `<project-root>/.agents/skills/<skill-name>/SKILL.md`. If the repository already keeps skills in `<project-root>/skills/` and has them configured, follow that existing pattern instead.
 
-## Rules
+## Instructions
 
-Follow general `skill-writing` guidelines.
-
-Tie instructions to the codebase. Hardcode local paths, configuration files, test scripts, and build flags. General advice belongs in global skills and use of `create-global-skill`.
-
-Provide exact commands and expected results. Specify the exact CLI command to run, along with the expected output.
-
-Separate guidelines from workflows.
+1. Read `skill-writing`: You MUST read the `skill-writing` skill before drafting. Apply its core test: only write opinions and constraints that counteract default model habits.
+2. Ground in the codebase: Inspect existing build configs, test scripts, or task runners first. Hardcode exact paths, flags, commands, and expected outputs.
+3. Separate rules from procedures: If the instruction is a passive constraint or coding standard, put it in `.agents/rules/` or `AGENTS.md` instead of a skill. Use skills for executable workflows and runbooks.
