@@ -16,6 +16,7 @@ Developer rules, formatting standards, and pair-programming skills.
 ```
 
 and add "... repo folder .../" to Antigravity settings -> General -> File Access Rules
+(if using skills: just read. if you want to build on it, e.g. using `/create-global-skill`, then also give write access)
 
 ## Claude Code Setup
 
