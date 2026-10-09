@@ -43,6 +43,7 @@ Skills developed specifically for this environment and workflow:
 - **[safe-commit](./skills/safe-commit/SKILL.md)**: Stage specific files, review staged diffs, and write structured commit messages.
 - **[skill-writing](./skills/skill-writing/SKILL.md)**: Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
 - **[sort-out-imports](./skills/sort-out-imports/SKILL.md)**: Tidy Python imports via isort and enforce explicit namespace imports.
+- **[strong-black](./skills/strong-black/SKILL.md)**: Run black, inspect diffs for awkward wrapping or comment artifacts, manually fix layout, and re-run black.
 - **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 
 ## pstack Skills
