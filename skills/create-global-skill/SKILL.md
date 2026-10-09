@@ -15,8 +15,10 @@ Do not write to the current workspace root unless it happens to be `ai_hints`. E
 
 ## Rules
 
-1. Keep it universal. Omit project-specific paths, or repository tooling outside of `ai_hints`.
-2. Override default model behavior. If an unprompted model already does it, do not write the skill. Target a specific bad habit or patterns the user doesn't approve of. If your first idea of what the skill looks like is your natural output, ask the user what you want to differ, and only include the difference in the skill.
+Follow general `skill-writing` guidelines.
+
+Keep it universal. Omit project-specific paths, or repository tooling outside of `ai_hints`.
+
 3. Keep descriptions under three lines. State the exact trigger cues so the runtime loads it when needed and ignores it otherwise.
-4. Keep instructions short and imperative. Do not write tutorials or language syntax overviews. Do not write full descriptions of entire systems that should be in a human-targeted README file instead.
+
 5. After creating the file, register it in `<ai_hints_root>/README.md` under the custom skills section.
