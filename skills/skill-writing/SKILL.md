@@ -5,24 +5,18 @@ description: Draft, review, or refine an agent skill. Use when turning guideline
 
 # Skill writing
 
-Skills inject opinions, counteract model blind spots, and enforce non-obvious taste. A skill is not a manual for things the model already knows. If a base model does it anyway, cut it.
+Skills inject opinions, counteract model blind spots, and enforce non-obvious taste. A skill is not a manual for things the model already knows. If an unprompted model does it anyway, cut it.
 
 ## The core test
 
-Before writing, figure out: what does an unprompted model do wrong here, and what opinion, guideline or piece of information overrides that? Has the user made it clear, or is it clear from the current model context that a fresh agent won't see?
-
-Override default model behavior. If an unprompted model already does it, do not write the skill. Target a specific bad habit or patterns the user doesn't approve of. If your first idea of what the skill looks like is your natural output, ask the user what you want to differ, and only include the difference in the skill.
+Before writing, identify what an unprompted model does wrong here, and what opinion or constraint overrides that. If your first idea looks like default model output, ask the user what should differ, and only put that difference in the skill.
 
 If the skill lacks an opinion that contradicts default LLM habits, it does not need to exist.
 
 ## Rules for drafting
 
-Keep it short, because instructions load into context on every use. Write direct imperatives.
-
-Target specific model habits: Name the exact anti-pattern to stop and forbid it directly.
-
-Write sharp trigger descriptions: The description dictates when the skill loads. Name the exact cues, impulses, commands, or file patterns.
-   
-Do not write tutorials. Do not write full descriptions of entire systems that should be in a human-targeted README file instead. If you are tempted to do so, you can consider suggesting to the user that we write a README instead.
-   
-Use the `unslop` skill.
+1. Keep it short. Instructions load into context on every use. Write direct imperatives.
+2. Target specific model habits: Name the exact anti-pattern to stop and forbid it directly.
+3. Write sharp trigger descriptions: The description dictates when the skill loads. Name the exact cues, impulses, commands, or file patterns.
+4. Do not write tutorials. Do not explain entire systems that belong in a project README. If tempted, suggest writing a README instead.
+5. Apply the `unslop` skill.
