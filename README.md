@@ -32,6 +32,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 Skills developed based on workflow, desired assumptions etc -- typically using Gemini 3.8 Flash:
 
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
+- **[bro-rethink](./skills/bro-rethink/SKILL.md)**: Stop and re-evaluate when thinking was lazy, ungrounded, or superficial.
 - **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
 - **[create-global-skill](./skills/create-global-skill/SKILL.md)**: Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
 - **[create-project-skill](./skills/create-project-skill/SKILL.md)**: Draft a project-specific skill inside the current workspace repository.
