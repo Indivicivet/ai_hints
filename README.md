@@ -34,6 +34,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
 - **[bro-rethink](./skills/bro-rethink/SKILL.md)**: Stop and re-evaluate when thinking was lazy, ungrounded, or superficial.
 - **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
+- **[concise](./skills/concise/SKILL.md)**: Cut filler, omit preamble, and compress output to bare essentials.
 - **[create-global-skill](./skills/create-global-skill/SKILL.md)**: Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
 - **[create-project-skill](./skills/create-project-skill/SKILL.md)**: Draft a project-specific skill inside the current workspace repository.
 - **[desktop-gui](./skills/desktop-gui/SKILL.md)**: Guidelines for building desktop GUIs (PySide6 default, slider-spinbox sync, theme safety).
