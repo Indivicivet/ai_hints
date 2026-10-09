@@ -17,6 +17,15 @@ Developer rules, formatting standards, and pair-programming skills.
 
 and add "... repo folder .../" to Antigravity settings -> General -> File Access Rules
 
+## Claude Code Setup
+
+(untested)
+
+~/.claude/CLAUDE.md:
+```
+@c:/path/to/repos/ai_hints/rules/AGENTS.md
+```
+
 ## pstack Skills
 
 Engineering principles and discipline adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) (Lauren Tan / `@poteto`):
