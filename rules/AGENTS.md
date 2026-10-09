@@ -9,6 +9,7 @@
 - Typing: Only use type hints when adding or modifying function signatures if this helps to clarify the types involved; don't bother with them if the types are highly variable (e.g. any arithmetic types). Don't bother with them if the code is already clear. Do not add types to existing code unless requested.
 - Avoid single use variables. Inline variables where possible, unless declaring them as a separate variable is used for debugging, or it makes it significantly clearer what something is for.
 - Never create redundant aliases for variables. If you are tempted to create aliases for "backwards compatibility", instead update all usages of the functionality to represent the new API; if it's a public interface, inform the user.
+- Exception handling in Python: You must avoid overly general try-except with a bare Exception as much as possible. Only use when necessary, and scope a try-except block as narrowly as you can. You can use a high level try-except to catch errors from internal code in a GUI and report the error within the GUI. You may use try-except for control flow. You may use a high level try-finally to deal with closing hardware, connections, etc.
 - Imports: Use absolute imports. Do not reorganize existing imports unless a new one is required. If modifying existing imports, use the `sort-out-imports` skill.
 - Do not mutate function arguments.
 -- There may be exceptions: perfomance, mutation being needed to implement an algorithm sensibly, writing C/CUDA etc.
