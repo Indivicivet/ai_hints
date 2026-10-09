@@ -14,5 +14,6 @@ Write the file to `<project-root>/.agents/skills/<skill-name>/SKILL.md`. If the 
 ## Instructions
 
 1. Read `skill-writing`: You MUST read the `skill-writing` skill before drafting. Apply its core test: only write opinions and constraints that counteract default model habits.
-2. Ground in the codebase: Inspect existing build configs, test scripts, or task runners first. Hardcode exact paths, flags, commands, and expected outputs.
-3. Separate rules from procedures: If the instruction is a passive constraint or coding standard, put it in `.agents/rules/` or `AGENTS.md` instead of a skill. Use skills for executable workflows and runbooks.
+2. Consider what context you have about the project that a fresh agent wouldn't, e.g. what you've been working on.
+3. Ground in the codebase: Inspect existing build configs, test scripts first. Hardcode exact paths, flags, commands, and expected outputs.
+4. Scope appropriately: Put broad-scope project invariants in `AGENTS.md`. Use skills for specific aspects of the project, or multi-step procedures that only need to load when relevant to the task.
