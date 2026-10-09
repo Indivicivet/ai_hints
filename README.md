@@ -32,11 +32,14 @@ Skills developed specifically for this environment and workflow:
 
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
 - **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
+- **[create-global-skill](./skills/create-global-skill/SKILL.md)**: Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
+- **[create-project-skill](./skills/create-project-skill/SKILL.md)**: Draft a project-specific skill inside the current workspace repository.
 - **[desktop-gui](./skills/desktop-gui/SKILL.md)**: Guidelines for building desktop GUIs (PySide6 default, slider-spinbox sync, theme safety).
 - **[direct-web-cite](./skills/direct-web-cite/SKILL.md)**: Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
 - **[mathematical-audience](./skills/mathematical-audience/SKILL.md)**: Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
 - **[pitch-higher](./skills/pitch-higher/SKILL.md)**: Nudge the last explanation a step higher in assumed competence and density.
 - **[pitch-lower](./skills/pitch-lower/SKILL.md)**: Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
+- **[skill-writing](./skills/skill-writing/SKILL.md)**: Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
 - **[sort-out-imports](./skills/sort-out-imports/SKILL.md)**: Tidy Python imports via isort and enforce explicit namespace imports.
 - **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 
