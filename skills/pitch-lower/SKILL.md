@@ -8,4 +8,4 @@ disable-model-invocation: true
 
 Nudge your last explanation a step lower in assumed background.
 
-Meet the reader a bit earlier: define terms that might be unfamiliar, make implicit steps explicit, and ground dense or compressed ideas with a clear example. Keep it informative and respectful without dropping into slang or throwing away technical substance.
+Talk to someone with less background in this subject: explain the specialized terms when you use them, don't skip steps, and don't take prerequisites for granted. Keep the thinking solid, but explain it so a beginner can follow.

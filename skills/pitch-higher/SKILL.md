@@ -8,4 +8,4 @@ disable-model-invocation: true
 
 Nudge your last explanation a step higher in assumed competence.
 
-Assume a bit more domain background: trim introductory framing and textbook definitions you don't need, tighten phrasing, and lean slightly more into precise terminology and subtle trade-offs.
+Talk to someone with more background in this subject: use the proper terms without stopping to define them, skip the basics, and focus on the parts only someone with experience would care about.
