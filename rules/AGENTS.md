@@ -15,6 +15,7 @@
 -- There may be exceptions: perfomance, mutation being needed to implement an algorithm sensibly, writing C/CUDA etc.
 -- Avoid non-constant variables for similar reasons; it is ok for a scope to have one or two non-constant variables, or those that are only modified in a local segment. Use of mutation must be justifiable.
 -- Overriding input values that default to None with conditional alternative values is fine.
+- Libraries: use pathlib over os.path. You may use cv2 for image loading where performance matters, but if only one or two images are saved/loaded, prefer PIL to avoid BGR-RGB conversion mess.
 
 ## Development Workflow
 - Avoid unsolicited edits: You are forbidden from editing code unrelated to the specific task. If you see "bad" code in a different function, ignore it unless it causes a breaking error for the current task. Do not add or remove comments from unrelated parts of code (removing a "TODO" comment when addressing that todo is allowed). You may make any edits to fully achieve the goal requested and no further.
