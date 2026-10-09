@@ -1,11 +1,11 @@
 ---
 name: pitch-higher
-description: Re-pitch the explanation for a more advanced, knowledgeable reader.
+description: Nudge the explanation slightly higher in assumed reader knowledge and density.
 disable-model-invocation: true
 ---
 
 # Pitch higher
 
-Re-pitch your last explanation for a more experienced reader.
+Nudge your last explanation a step higher in assumed competence.
 
-Skip introductory overviews, basic definitions, and textbook recaps. Treat the reader as an experienced practitioner: use standard field terminology directly, increase informational density, and focus on non-trivial trade-offs, edge cases, and nuances.
+Assume a bit more domain background: trim introductory framing and textbook definitions you don't need, tighten phrasing, and lean slightly more into precise terminology and subtle trade-offs.
