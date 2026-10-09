@@ -21,12 +21,13 @@ Follow this hierarchy:
 
 `<user>/<project if applicable>/<ticket if applicable>/<agent-name>/<desc>`
 
-Examples:
-- `indi/ai_hints/gemini/task-parser-split`
-- `indi/proj/PROJ-104/gemini/refactor-step-1`
+If the user has a checked-out branch that seems relevant to your work, you can create a new branch using the same user/project/ticket/ tags and just interjecting `/gemini/`.
+
+Example:
+- `bob/ai_hints/gemini/parser_task`
 
 If project or ticket do not apply, omit those segments:
-`indi/gemini/refactor-step-1`
+`bob/gemini/parser_task`
 
 ## Workflow
 
@@ -35,6 +36,8 @@ If project or ticket do not apply, omit those segments:
    git status -s
    git checkout -b <branch-name>
    ```
+
+  When checking status you should flag to the user if they have uncommitted changes that could get overriden by later git usage, especially if you don't recognise them. If you KNOW they are your changes you can bring them with you and commit them on your branch.
 
 2. After each milestone or logical step:
    - Format modified files (e.g. `python -m black .` for Python).
@@ -52,9 +55,19 @@ If project or ticket do not apply, omit those segments:
      ```
 
 3. If an approach fails:
-   - Roll back to the previous step cleanly:
+   - Never use a hard git reset if there are dirty or uncommitted files in the workspace.
+   - If work is already committed in a checkpoint commit on your agent branch, revert to the previous good commit by creating a new "second attempt" branch:
      ```bash
-     git reset --hard HEAD~1
+     # Inspect history to identify the last known good commit:
+     git log --oneline -n 10
+
+     # Create a variant branch pointing at this commit.
+     git checkout -b user/gemini/refactor-retry-1 <last-good-commit-hash>
+     ```
+     Leave your other branch intact for inspection, and retrospective on what went wrong.
+   - If there are uncommitted exploratory edits you need to discard without touching unrelated dirty files, discard only the specific files you modified:
+     ```bash
+     git checkout HEAD -- <path/to/failed_file>
      ```
 
 4. Completion:
