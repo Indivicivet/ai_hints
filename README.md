@@ -3,6 +3,7 @@
 Developer rules, formatting standards, and pair-programming skills.
 
 ## Gemini Setup
+## Setup
 
 ~/.gemini/config/plugins.json:
 ```
@@ -19,6 +20,7 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 (if using skills: just read. if you want to build on it, e.g. using `/create-global-skill`, then also give write access)
 
 ## Claude Code Setup
+### Claude Code
 
 (untested)
 
@@ -27,9 +29,9 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 @c:/path/to/repos/ai_hints/rules/AGENTS.md
 ```
 
-## Custom Skills
+## Skills
 
-Skills developed specifically for this environment and workflow:
+Skills developed based on workflow, desired assumptions etc -- typically using Gemini 3.8 Flash:
 
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
 - **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
@@ -47,7 +49,7 @@ Skills developed specifically for this environment and workflow:
 - **[strong-black](./skills/strong-black/SKILL.md)**: Run black, inspect diffs for awkward wrapping or comment artifacts, manually fix layout, and re-run black.
 - **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 
-## pstack Skills
+### pstack Skills
 
 Engineering principles and discipline adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) (Lauren Tan / `@poteto`):
 
@@ -59,6 +61,7 @@ Engineering principles and discipline adapted from [pstack](https://github.com/c
 - **[unslop](./skills/unslop/SKILL.md)**: Cut AI tells, fluff, and puffery from writing. (Diverged: adapted rules around bolding, colons, em dashes, shorthand like e.g./i.e., and streamlined guidelines)
 
 ## Matt Pocock Skills
+### Matt Pocock Skills
 
 Workflows and feedback loops adapted from [mattpocock/skills](https://github.com/mattpocock/skills):
 
