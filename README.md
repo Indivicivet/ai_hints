@@ -2,7 +2,6 @@
 
 Developer rules, formatting standards, and pair-programming skills.
 
-## Gemini Setup
 ## Setup
 
 ~/.gemini/config/plugins.json:
@@ -19,7 +18,6 @@ Developer rules, formatting standards, and pair-programming skills.
 and add "... repo folder .../" to Antigravity settings -> General -> File Access Rules
 (if using skills: just read. if you want to build on it, e.g. using `/create-global-skill`, then also give write access)
 
-## Claude Code Setup
 ### Claude Code
 
 (untested)
@@ -60,7 +58,6 @@ Engineering principles and discipline adapted from [pstack](https://github.com/c
 - **[principle-minimize-reader-load](./skills/principle-minimize-reader-load/SKILL.md)**: Fewer layers of indirection and reduced mutable state. (essentially unmodified)
 - **[unslop](./skills/unslop/SKILL.md)**: Cut AI tells, fluff, and puffery from writing. (Diverged: adapted rules around bolding, colons, em dashes, shorthand like e.g./i.e., and streamlined guidelines)
 
-## Matt Pocock Skills
 ### Matt Pocock Skills
 
 Workflows and feedback loops adapted from [mattpocock/skills](https://github.com/mattpocock/skills):
