@@ -38,7 +38,7 @@ es = cma.CMAEvolutionStrategy(
         "ftarget": 1e-8,
         "maxiter": 50,
         "verbose": -9,
-    }
+    },
 )
 
 while not es.stop():
