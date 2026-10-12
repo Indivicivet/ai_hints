@@ -16,6 +16,13 @@ Use the ask-tell interface instead of `cma.fmin`, always evaluate the initial po
 3. Inspect `es.stop()`. It returns a dictionary of active stopping conditions. Check whether the run ended due to target fitness (`ftarget`), convergence tolerances (`tolx`, `tolfun`), or budget exhaustion (`maxevals`).
 4. When you have a result, make sure you keep everything corresponding to the last best value `result.xbest`, rather than the last to evaluate. This includes when controlling GUI sliders, hardware, etc; leave the GUI / hardware in the xbest state, not the final state.
 5. Use `bounds` in options where clipping is needed.
+6. When parameter ranges differ across dimensions, pass `CMA_stds` with dimension-wise standard deviations to prevent isotropic scaling collapse. Set $\sigma_0$ to expected local variation (roughly 10% to 30% of the search range), not the full domain width.
+
+## Advanced usage
+- Multimodal landscapes: Use restarts via `bipop=True` (or `cma.fmin(..., restarts=...)`) to alternate between growing global populations and localized exploitation.
+- High dimensions ($n > 100$): Pass `CMA_diagonal: True` to restrict covariance to coordinate variances, dropping iteration cost from $\mathcal{O}(n^3)$ to $\mathcal{O}(n)$.
+- Noisy objectives: Pass `CMA_noise_handling: True` (or increase `popsize`) to let the solver measure fitness variance and adapt sample sizes.
+- Warm starts: Set `CMA_cmean < 1.0` when seeding from a prior solution to damp abrupt drift of the mean vector $m$.
 
 ## Minimal template
 
