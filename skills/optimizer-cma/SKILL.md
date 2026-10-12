@@ -12,7 +12,7 @@ Use the ask-tell interface instead of `cma.fmin`, always evaluate the initial po
 ## Rules
 
 1. Always set `eval_initial_x: True`. By default, CMA-ES never evaluates $x_0$ itself. If the distribution drifts before finding a better point, `es.result.xbest` can end up worse than your starting guess.
-2. Use the explicit ask-tell loop. Avoid `cma.fmin`. An explicit `es.ask()` and `es.tell()` loop keeps evaluations decoupled for parallel execution (evaluating `solutions` across threads/processes), hardware batching, inspection, or custom termination. Default to `maxiter` rather than `maxfevals`.
+2. Use the explicit ask-tell loop. Avoid `cma.fmin`. An explicit `es.ask()` and `es.tell()` loop keeps evaluations decoupled for parallel execution, hardware batching, inspection, or custom termination. Default to `maxiter` rather than `maxfevals`.
 3. Inspect `es.stop()`. It returns a dictionary of active stopping conditions. Check whether the run ended due to target fitness (`ftarget`), convergence tolerances (`tolx`, `tolfun`), or budget exhaustion (`maxevals`).
 4. When done, restore the best evaluated configuration, not the final state. For pure objectives use `es.result.xbest`. For hardware or noisy/guarded evaluations, track the best verified candidate manually (`if is_valid and score < best_score: save(...)`) so invalid or aborted measurements are never applied.
 5. Use `bounds` in options where clipping is needed.
