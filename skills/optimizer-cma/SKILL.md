@@ -5,6 +5,8 @@ description: Run black-box optimization with CMA-ES. Use when writing an optimiz
 
 # CMA-ES optimization
 
+CMA-ES is a good optimizer for black-box optimization. It can be used with hardware, black box code, etc. It works well for low dimensions (even dim 1-2) up to 100s of dimensions, and works well when the task is parallelizable.
+
 Use the ask-tell interface instead of `cma.fmin`, always evaluate the initial point $x_0$, and always use the settings and results corresponding to `result.xbest`.
 
 ## Rules
