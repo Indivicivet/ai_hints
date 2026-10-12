@@ -1,46 +1,42 @@
 ---
 name: optimizer-cma
-description: Run black-box optimization with CMA-ES via python-cma. Use when writing, reviewing, or debugging CMA-ES setups, fmin calls, or ask-tell loops.
+description: Run black-box optimization with CMA-ES. Use when writing an optimizer with unspecified optimization algorithm, or debugging CMA-ES code.
 ---
 
 # CMA-ES optimization
 
-Default agent code for `cma` has three blind spots: it calls `cma.fmin` instead of using the ask-tell interface, forgets to evaluate the initial point $x_0$, and returns `float("inf")` for out-of-bounds samples.
+Use the ask-tell interface instead of `cma.fmin`, always evaluate the initial point $x_0$, and always use the settings and results corresponding to `result.xbest`.
 
 ## Rules
 
 1. Always set `eval_initial_x: True`. By default, CMA-ES never evaluates $x_0$ itself. If the distribution drifts before finding a better point, `es.result.xbest` can end up worse than your starting guess.
-2. Use `bounds` in options instead of custom clipping or infinite penalties. Passing `bounds=[lower, upper]` lets the solver apply adaptive boundary ranking without destroying covariance updates or stalling on flat infinite surfaces.
-3. Use the explicit ask-tell loop. Avoid `cma.fmin`. An explicit `es.ask()` and `es.tell()` loop keeps evaluations decoupled for batching, inspection, or custom termination.
-4. Inspect `es.stop()`. It returns a dictionary of active stopping conditions. Check whether the run ended due to target fitness (`ftarget`), convergence tolerances (`tolx`, `tolfun`), or budget exhaustion (`maxevals`).
+2. Use the explicit ask-tell loop. Avoid `cma.fmin`. An explicit `es.ask()` and `es.tell()` loop keeps evaluations decoupled for batching (useful with hardware), inspection, or custom termination. Default to `maxiter` rather than `maxfevals`.
+3. Inspect `es.stop()`. It returns a dictionary of active stopping conditions. Check whether the run ended due to target fitness (`ftarget`), convergence tolerances (`tolx`, `tolfun`), or budget exhaustion (`maxevals`).
+4. When you have a result, make sure you keep everything corresponding to the last best value `result.xbest`, rather than the last to evaluate. This includes when controlling GUI sliders, hardware, etc; leave the GUI / hardware in the xbest state, not the final state.
+5. Use `bounds` in options where clipping is needed.
 
 ## Minimal template
 
 ```python
 import cma
-import numpy as np
 
+es = cma.CMAEvolutionStrategy(
+    x0,
+    sigma0,
+    inopts={
+        "bounds": [-5.0, 5.0],
+        "eval_initial_x": True,
+        "ftarget": 1e-8,
+        "maxiters": 5000,
+        "verbose": -9,
+    }
+)
 
-def objective(x: np.ndarray) -> float:
-    return float(np.sum(x**2))
-
-
-x0 = np.array([2.0, 2.0, 2.0])
-sigma0 = 0.5
-options = {
-    "bounds": [-5.0, 5.0],
-    "eval_initial_x": True,
-    "ftarget": 1e-8,
-    "maxevals": 5000,
-    "verbose": -9,
-}
-
-es = cma.CMAEvolutionStrategy(x0, sigma0, inopts=options)
 while not es.stop():
     solutions = es.ask()
-    fitnesses = [objective(x) for x in solutions]
+    fitnesses = [objective_function(x) for x in solutions]
     es.tell(solutions, fitnesses)
 
-print(f"Stop condition: {es.stop()}")
-print(f"Best value: {es.result.fbest:.3e} at {es.result.xbest}")
+print(f"Stop: {es.stop()}")
+print(f"Best: f({es.result.xbest}) = {es.result.fbest:.3e}")
 ```
