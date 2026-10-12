@@ -65,4 +65,4 @@ Engineering principles and discipline adapted from [pstack](https://github.com/c
 Workflows and feedback loops adapted from [mattpocock/skills](https://github.com/mattpocock/skills):
 
 - **[grilling](./skills/grilling/SKILL.md)**: Stress-test plans and assumptions through structured design-tree interview rounds. (Diverged: cleaned formatting/unicode artefacts, consolidated standalone prompt)
-- **[research](./skills/research/SKILL.md)**: Investigate questions against primary sources with direct citations. (essentially unmodified)
+- **[background-research](./skills/background-research/SKILL.md)**: Investigate questions against primary sources with direct citations. (essentially unmodified, but renamed from "research")
