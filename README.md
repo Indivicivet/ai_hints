@@ -41,6 +41,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - **[direct-web-cite](./skills/direct-web-cite/SKILL.md)**: Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
 - **[large-task-git-usage](./skills/large-task-git-usage/SKILL.md)**: Manage branches and step-by-step checkpoint commits during multi-step, large-scope tasks.
 - **[mathematical-audience](./skills/mathematical-audience/SKILL.md)**: Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
+- **[optimizer-cma](./skills/optimizer-cma/SKILL.md)**: Run black-box optimization with CMA-ES using clean ask-tell loops, native bounds, and evaluated baselines.
 - **[pitch-higher](./skills/pitch-higher/SKILL.md)**: Nudge the last explanation a step higher in assumed competence and density.
 - **[pitch-lower](./skills/pitch-lower/SKILL.md)**: Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
 - **[refine-from-feedback](./skills/refine-from-feedback/SKILL.md)**: Diagnose agent mistakes or flawed prompt/skill guidance and update governing skills or AGENTS.md.
