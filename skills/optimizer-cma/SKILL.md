@@ -32,7 +32,7 @@ import cma
 
 es = cma.CMAEvolutionStrategy(
     x0,
-    sigma0,
+    sigma0=1,
     inopts={
         "bounds": [-5.0, 5.0],
         "eval_initial_x": True,
