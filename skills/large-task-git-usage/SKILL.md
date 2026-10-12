@@ -13,7 +13,8 @@ Manage git state safely during complex, multi-phase tasks.
 2. Commit after each completed step. Small checkpoint commits make rollbacks painless.
 3. Stage only explicit files. Never run `git add .` or `git add -A`.
 4. Review every diff before committing.
-5. No auto-merging. Merging back to human branches requires manual review by the user.
+5. Aim to not overly complicate the codebase. If you add a lot of lines in your commit to make something work, after committing, consider doing a light "pruning pass" over your changes so far, and any adjacent code that was previously acceptable but wasn't before (e.g. 2-3 hardcoded if statements have become 5-6, and should now be a loop).
+6. No auto-merging. Merging back to human branches requires manual review by the user.
 
 ## Branch naming
 
@@ -49,9 +50,9 @@ If project or ticket do not apply, omit those segments:
      ```bash
      git diff --staged
      ```
-   - Commit with the step number, what changed, and why:
+   - Commit with what changed, and why. If you're working across a broad scope task that includes several aspects such as adding functionality, addressing bugs, and tidying up, consider adding tags like "- feature", "- fix", "- tidyup" etc to your "[AI commit]"
      ```bash
-     git commit -m "[AI commit] step <N>: <what> - <why>"
+     git commit -m "[AI commit <optional tag>]: <what> - <why>"
      ```
 
 3. If an approach fails:
