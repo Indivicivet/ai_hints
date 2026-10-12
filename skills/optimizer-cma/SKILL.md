@@ -27,7 +27,7 @@ es = cma.CMAEvolutionStrategy(
         "bounds": [-5.0, 5.0],
         "eval_initial_x": True,
         "ftarget": 1e-8,
-        "maxiters": 5000,
+        "maxiter": 50,
         "verbose": -9,
     }
 )
