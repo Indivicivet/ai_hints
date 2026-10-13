@@ -18,17 +18,17 @@ Manage git state safely during complex tasks, by frequently committing working c
 
 ## Branch naming
 
-Follow this hierarchy:
+You MUST follow this heirarchy, and you MUST include `/<agent-name>/` tag, e.g. `/gemini/`.
 
-`<user>/<project if applicable>/<ticket if applicable>/<agent-name>/<desc>`
+`<user>/<project tag if applicable>/<ticket if applicable>/<agent-name>/<desc>`
 
-If the user has a checked-out branch that seems relevant to your work, you can create a new branch using the same user/project/ticket/ tags and just interjecting `/gemini/`.
+If the user has a checked-out branch that matches your work, create a new branch using the same user/project/ticket/ tags and just interjecting `/gemini/`.
+Otherwise create a new branch following this schema.
 
-Example:
-- `bob/ai_hints/gemini/parser_task`
-
-If project or ticket do not apply, omit those segments:
-`bob/gemini/parser_task`
+Examples:
+- `alice/gemini/git_skill_tidy`
+- `bob/FEAT-0001/gemini/git_skill_tidy`
+- `clare/client_d/TEST-123/gemini/spinbox_fixes`
 
 ## Workflow
 
