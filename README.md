@@ -1,6 +1,6 @@
 # AI Hints
 
-Developer rules, formatting standards, and pair-programming skills.
+Agent rules, coding guidelines, formatting standards, opinionated workflows, skills to avoid common gotchas, etc.
 
 ## Setup
 
