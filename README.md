@@ -31,25 +31,30 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 
 Skills developed based on workflow, desired assumptions etc -- typically using Gemini 3.8 Flash:
 
-- **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
+### General
+
 - **[bro-rethink](./skills/bro-rethink/SKILL.md)**: Stop and re-evaluate when thinking was lazy, ungrounded, or superficial.
-- **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
 - **[concise](./skills/concise/SKILL.md)**: Cut filler, omit preamble, and compress output to bare essentials.
 - **[create-global-skill](./skills/create-global-skill/SKILL.md)**: Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
 - **[create-project-skill](./skills/create-project-skill/SKILL.md)**: Draft a project-specific skill inside the current workspace repository.
-- **[desktop-gui](./skills/desktop-gui/SKILL.md)**: Guidelines for building desktop GUIs (PySide6 default, slider-spinbox sync, theme safety).
 - **[direct-web-cite](./skills/direct-web-cite/SKILL.md)**: Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
-- **[large-task-git-usage](./skills/large-task-git-usage/SKILL.md)**: Manage branches and step-by-step checkpoint commits during multi-step, large-scope tasks.
 - **[mathematical-audience](./skills/mathematical-audience/SKILL.md)**: Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
-- **[optimizer-cma](./skills/optimizer-cma/SKILL.md)**: Run black-box optimization with CMA-ES using clean ask-tell loops, native bounds, and evaluated baselines.
 - **[pitch-higher](./skills/pitch-higher/SKILL.md)**: Nudge the last explanation a step higher in assumed competence and density.
 - **[pitch-lower](./skills/pitch-lower/SKILL.md)**: Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
 - **[refine-from-feedback](./skills/refine-from-feedback/SKILL.md)**: Diagnose agent mistakes or flawed prompt/skill guidance and update governing skills or AGENTS.md.
-- **[safe-commit](./skills/safe-commit/SKILL.md)**: Stage specific files, review staged diffs, and write structured commit messages.
 - **[skill-writing](./skills/skill-writing/SKILL.md)**: Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
+- **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
+
+### Coding-specific
+
+- **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
+- **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
+- **[desktop-gui](./skills/desktop-gui/SKILL.md)**: Guidelines for building desktop GUIs (PySide6 default, slider-spinbox sync, theme safety).
+- **[large-task-git-usage](./skills/large-task-git-usage/SKILL.md)**: Manage branches and step-by-step checkpoint commits during multi-step, large-scope tasks.
+- **[optimizer-cma](./skills/optimizer-cma/SKILL.md)**: Run black-box optimization with CMA-ES using clean ask-tell loops, native bounds, and evaluated baselines.
+- **[safe-commit](./skills/safe-commit/SKILL.md)**: Stage specific files, review staged diffs, and write structured commit messages.
 - **[sort-out-imports](./skills/sort-out-imports/SKILL.md)**: Tidy Python imports via isort and enforce explicit namespace imports.
 - **[strong-black](./skills/strong-black/SKILL.md)**: Run black, inspect diffs for awkward wrapping or comment artifacts, manually fix layout, and re-run black.
-- **[transcribe](./skills/transcribe/SKILL.md)**: Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 
 ### pstack Skills
 
