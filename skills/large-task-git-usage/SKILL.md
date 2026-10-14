@@ -49,7 +49,6 @@ Examples:
      ```bash
      git diff --staged
      ```
-   - Commit with what changed, and why. Consider adding tags like "- feature", "- fix", "- tidyup" etc to your "[AI commit]"
      ```bash
      git commit -m "[AI commit <optional tag>]: <what> - <why>"
      ```
