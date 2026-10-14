@@ -1,6 +1,6 @@
 ---
 name: atlassian-mcp-setup
-description: Set up, authenticate, or troubleshoot the Atlassian Remote MCP server. Use when configuring mcp_config.json for Jira, Confluence, or Bitbucket via Atlassian MCP.
+description: Set up, authenticate, or troubleshoot the Atlassian Remote MCP server. Use when configuring mcp_config.json (e.g. for Gemini, Claude, or other MCP clients) for Jira, Confluence, or Bitbucket.
 ---
 
 # Atlassian MCP Setup
@@ -36,4 +36,9 @@ Do not generate bespoke authentication scripts from scratch. Run the bundled scr
 python -u <skill_directory>/scripts/authenticate.py
 ```
 
-This performs Dynamic Client Registration (DCR), sets up PKCE + PAR, starts a local callback listener on `http://localhost:8080/callback`, opens the browser authorization prompt, and updates `~/.gemini/config/mcp_config.json` with the Bearer token.
+Optional arguments:
+- `--config <path>`: Custom path to save the MCP configuration file (defaults to `~/.gemini/config/mcp_config.json`, e.g. for Gemini CLI / Antigravity).
+- `--client-name <name>`: Custom client display name for OAuth registration (default: `MCP Client`).
+- `--no-save`: Prints the configuration JSON to stdout without modifying any file.
+
+The script performs Dynamic Client Registration (DCR), sets up PKCE + PAR, starts a local callback listener on `http://localhost:8080/callback`, opens the browser authorization prompt, and updates the target MCP configuration with the Bearer token.
