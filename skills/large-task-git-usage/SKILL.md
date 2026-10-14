@@ -15,6 +15,7 @@ Manage git state safely during complex tasks, by frequently committing working c
 4. Review every diff before committing.
 5. Aim to not overly complicate the codebase. If you add a lot of lines in your commit to make something work, after committing, consider doing a light "pruning pass" over your changes so far. If you add complexity to a section of code, see if a minor refactor of the surrounding code can reduce this complexity.
 6. No auto-merging. Merging back to human branches requires manual review by the user.
+7. ONLY commit to the repo you're currently working in unless explicitly told otherwise. If you make changes in other git repos, tell the user about them instead.
 
 ## Branch naming
 
