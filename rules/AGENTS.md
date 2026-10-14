@@ -10,6 +10,7 @@
 - Avoid single use variables. Inline variables where possible, unless declaring them as a separate variable is used for debugging, or it makes it significantly clearer what something is for.
 - NEVER create redundant aliases for variables. If you are tempted to create aliases for "backwards compatibility", instead update all usages of the functionality to represent the new API; if it's a public interface, inform the user.
 - Don't create redundant versions of string parameters. You may expose short options on the command line or for libraries that are designed for external use, but if part of procedural code, you muts pick a clear string (or sentinel object()) and stick with it.
+- NEVER create "legacy helper functions" unless for a public API, and remove them if you are doing code tidyup.
 - Exception handling in Python: You must avoid overly general try-except with a bare Exception as much as possible. Only use when necessary, and scope a try-except block as narrowly as you can. You can use a high level try-except to catch errors from internal code in a GUI and report the error within the GUI. You may use try-except for control flow. You may use a high level try-finally to deal with closing hardware, connections, etc.
 - Imports: Use absolute imports. Do not reorganize existing imports unless a new one is required. If modifying existing imports, use the `sort-out-imports` skill.
 - Do not mutate function arguments.
