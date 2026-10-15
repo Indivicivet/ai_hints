@@ -24,6 +24,9 @@ The Atlassian MCP does not expose separate top-level tools per action. It routes
 
 2. **Discover before guessing**:
    - Never invent operation names. If unsure of the exact operation or its parameter names, call `discover` with a query or product filter (e.g. `query="pull request comments"`).
+2. **Workspace Slugs vs. UUIDs**:
+   Always pass the human-readable workspace slug (e.g. `workspaceId: "idhteam"`). Passing raw workspace UUIDs (`{1234-...}`) often results in `404 Not Found`.
+
 
 3. **Re-fetching vs transcript scraping**:
    - If you need verbatim PR comment text, re-call `executeRead` with `getPullRequestComments` rather than parsing internal `transcript.jsonl`.

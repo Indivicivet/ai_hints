@@ -25,9 +25,6 @@ Instructions and constraints for configuring and authenticating the Atlassian Re
    }
    ```
 
-3. **Workspace Slugs vs. UUIDs**:
-   Bitbucket tools (`getBitbucketRepoPullRequest`, `listBitbucketRepoPullRequests`) will fail with `404 Not Found` if passed the raw Bitbucket workspace UUID (e.g. `{12345678-...}`). Always pass the human-readable workspace slug (e.g. `workspaceId: "<workspace-slug>"`). If unknown, retrieve it via `listBitbucketWorkspaces`.
-
 ## Authentication
 
 Do not generate bespoke authentication scripts from scratch. Run the bundled script:
