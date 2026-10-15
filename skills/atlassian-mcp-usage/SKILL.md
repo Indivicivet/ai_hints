@@ -28,3 +28,12 @@ The Atlassian MCP does not expose separate top-level tools per action. It routes
 3. **Re-fetching vs transcript scraping**:
    - If you need verbatim PR comment text, re-call `executeRead` with `getPullRequestComments` rather than parsing internal `transcript.jsonl`.
    - If inspecting saved JSON/logs from disk, write a standalone scratch script in `brain/<conversation-id>/scratch/` with explicit `encoding="utf-8"`. Never run nested JSON parsing inside PowerShell `python -c` one-liners.
+## Handling Expired Tokens (401 Unauthorized)
+
+If an MCP call returns `401 {"error": "invalid_token"}`:
+1. Run the authenticator from `atlassian-mcp-setup`:
+   ```powershell
+   python -u c:\personal_repos\ai_hints\skills\atlassian-mcp-setup\scripts\authenticate.py
+   ```
+2. **Immediately share the authorization URL in chat** as a clickable link so the user can authorize the request.
+3. Once the task finishes and writes the refreshed token to `mcp_config.json`, resume the original query.

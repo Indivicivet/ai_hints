@@ -42,3 +42,7 @@ Optional arguments:
 - `--no-save`: Prints the configuration JSON to stdout without modifying any file.
 
 The script performs Dynamic Client Registration (DCR), sets up PKCE + PAR, starts a local callback listener on `http://localhost:8080/callback`, opens the browser authorization prompt, and updates the target MCP configuration with the Bearer token.
+
+> [!IMPORTANT]
+> **Always link the Auth URL in chat**:
+> When running `authenticate.py`, immediately check the task output / log and print the full authorization URL (`https://auth.atlassian.com/authorize?...`) in chat as a clickable markdown link. Never rely solely on automated browser opening (`webbrowser.open`), as it often fails to focus or run in background/remote environments.
