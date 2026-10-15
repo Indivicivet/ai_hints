@@ -48,6 +48,8 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 ### Coding-specific
 
 - **[assume-installed](./skills/assume-installed/SKILL.md)**: Assume packages and libraries are installed without pre-flight check commands.
+- **[atlassian-mcp-setup](./skills/atlassian-mcp-setup/SKILL.md)**: Configure and authenticate the Atlassian Remote MCP server with PKCE OAuth and expected `?tools=all` URL.
+- **[atlassian-mcp-usage](./skills/atlassian-mcp-usage/SKILL.md)**: Query and mutate Jira, Confluence, and Bitbucket using flat MCP tools, parameter rules, and session headers.
 - **[clang-format-black](./skills/clang-format-black/SKILL.md)**: Format C/C++ (and supported languages) using clang-format with a black-esque style configuration.
 - **[desktop-gui](./skills/desktop-gui/SKILL.md)**: Guidelines for building desktop GUIs (PySide6 default, slider-spinbox sync, theme safety).
 - **[large-task-git-usage](./skills/large-task-git-usage/SKILL.md)**: Manage branches and step-by-step checkpoint commits during multi-step, large-scope tasks.
