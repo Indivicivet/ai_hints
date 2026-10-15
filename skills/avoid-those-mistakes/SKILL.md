@@ -22,8 +22,7 @@ When the user points out agent mistakes or poor interventions:
    - **Agent over-eagerness**: Did the agent invent problems to solve, alter readable code unnecessarily, or break locality of inline comments?
    - **Prompt gap**: Did the user's prompt assume domain taste that was never articulated?
 2. **Review the specific counter-examples**:
-   - Note what Black / the tool did versus what the agent did.
-   - Respect developer ergonomics: inline commented-out code (like `# * 4`), single-expression evaluations that avoid mutable variables, and localized comments must not be destroyed in pursuit of "flat" lines.
+   - Compare what was asked versus what the agent actually overreached on or touched.
 3. **Formulate the remediation**:
    - If an existing skill gave bad incentives, edit that skill's rules and anti-patterns immediately.
    - If repo-level guidance was violated or lacking, propose targeted additions to `AGENTS.md`.
@@ -31,6 +30,5 @@ When the user points out agent mistakes or poor interventions:
 
 ## Refining rules and skills
 
-- **Negative constraints over vague goals**: State strictly what the agent is forbidden from doing (e.g., "Do not convert expressions to if/else blocks or introduce new temporary variables").
-- **Preserve comment locality**: Comments describing a specific clause or containing toggleable code (e.g. `foo  # * 2`) must stay inline with that clause, not be hoisted above the entire statement.
-- **Run Black**: Run `python -m black .` after editing any Python rules or examples.
+- **Negative constraints over vague goals**: State strictly what the agent is forbidden from doing.
+- **Good examples and tricks**: Anchor on exact snippets or techniques that worked, rather than vague praise that can trigger unsolicited rewrites elsewhere.
