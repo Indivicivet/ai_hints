@@ -1,23 +1,23 @@
 ---
 name: atlassian-mcp-setup
-description: Set up, authenticate, or troubleshoot the Atlassian Remote MCP server. Use when configuring mcp_config.json (e.g. for Gemini, Claude, or other MCP clients) for Jira, Confluence, or Bitbucket.
+description: Set up, authenticate, or troubleshoot the Atlassian Remote MCP server. Use when configuring mcp_config.json for Jira, Confluence, or Bitbucket.
 ---
 
-# Atlassian MCP Setup
+# Atlassian MCP setup
 
-Instructions and constraints for configuring and authenticating the Atlassian Remote MCP server (`https://mcp.atlassian.com/v2/mcp`).
+Configuring and authenticating the Atlassian Remote MCP server (`https://mcp.atlassian.com/v2/mcp`).
 
-## Critical Gotchas & Overrides
+## Required configuration
 
-1. **Always append `?tools=all` to the URL**:
-   The default server URL (`https://mcp.atlassian.com/v2/mcp`) hides Bitbucket tools and relies on a dynamic discovery catalog that returns empty results for Bitbucket. You MUST configure the URL as:
+1. **Append `?tools=all` to the URL**:
+   The default URL hides Bitbucket and uses a discovery catalog that returns empty results. You must configure the URL with `?tools=all`:
    ```text
    https://mcp.atlassian.com/v2/mcp?tools=all
    ```
-   This exposes all 50+ available tools (Jira, Confluence, and Bitbucket pull requests, branches, and diffs) as flat, callable tools.
+   This exposes all 34 tools directly.
 
-2. **Required HTTP Headers**:
-   The server rejects requests that do not accept SSE streaming with `406 Not Acceptable`. Headers in `mcp_config.json` must include:
+2. **Required headers**:
+   The server returns `406 Not Acceptable` without SSE streaming headers. `mcp_config.json` must include:
    ```json
    "headers": {
      "Authorization": "Bearer <ACCESS_TOKEN>",
@@ -27,19 +27,15 @@ Instructions and constraints for configuring and authenticating the Atlassian Re
 
 ## Authentication
 
-Do not generate bespoke authentication scripts from scratch. Run the bundled script:
+Run the bundled script to generate tokens via OAuth PKCE:
 
 ```powershell
 python -u <skill_directory>/scripts/authenticate.py
 ```
 
-Optional arguments:
-- `--config <path>`: Custom path to save the MCP configuration file (defaults to `~/.gemini/config/mcp_config.json`, e.g. for Gemini CLI / Antigravity).
-- `--client-name <name>`: Custom client display name for OAuth registration (default: `MCP Client`).
-- `--no-save`: Prints the configuration JSON to stdout without modifying any file.
+Arguments:
+- `--config <path>`: MCP config file to write (defaults to `~/.gemini/config/mcp_config.json`).
+- `--client-name <name>`: Client display name for DCR (default: `MCP Client`).
+- `--no-save`: Print configuration to stdout without editing files.
 
-The script performs Dynamic Client Registration (DCR), sets up PKCE + PAR, starts a local callback listener on `http://localhost:8080/callback`, opens the browser authorization prompt, and updates the target MCP configuration with the Bearer token.
-
-> [!IMPORTANT]
-> **Always link the Auth URL in chat**:
-> When running `authenticate.py`, immediately check the task output / log and print the full authorization URL (`https://auth.atlassian.com/authorize?...`) in chat as a clickable markdown link. Never rely solely on automated browser opening (`webbrowser.open`), as it often fails to focus or run in background/remote environments.
+When running `authenticate.py`, check the output immediately and print the authorization URL (`https://auth.atlassian.com/authorize?...`) into chat as a clickable link. Do not rely on `webbrowser.open()` to focus a browser window.
