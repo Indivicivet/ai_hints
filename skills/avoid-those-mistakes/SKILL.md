@@ -1,9 +1,9 @@
 ---
-name: refine-from-feedback
+name: avoid-those-mistakes
 description: Analyze user corrections, mistaken agent actions, or flawed prompt/skill instructions, identify the failure mode, and update governing skills or AGENTS.md.
 ---
 
-# Refine from feedback
+# Avoid those mistakes
 
 Diagnose why the agent went astray—whether due to ambiguous prompting, bad skill guidance, or model overreach—and refine the governing rules or skills to prevent recurrence.
 
