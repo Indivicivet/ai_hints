@@ -31,6 +31,6 @@ When the user points out agent mistakes or poor interventions:
 
 ## Refining rules and skills
 
-- **Negative constraints over positive goals**: Tell the agent what it is strictly forbidden from doing (e.g., "Do not convert expressions to if/else blocks or introduce new temporary variables").
+- **Negative constraints over vague goals**: State strictly what the agent is forbidden from doing (e.g., "Do not convert expressions to if/else blocks or introduce new temporary variables").
 - **Preserve comment locality**: Comments describing a specific clause or containing toggleable code (e.g. `foo  # * 2`) must stay inline with that clause, not be hoisted above the entire statement.
 - **Run Black**: Run `python -m black .` after editing any Python rules or examples.
