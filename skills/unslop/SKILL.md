@@ -49,7 +49,7 @@ Removing patterns is half the job. Sterile, voiceless writing is just as obvious
 
 13. Em dash overuse: Avoid em dashes (and hyphen-as-dash substitutes). If a thought needs separation, end the sentence, use parentheses, or use a comma.
 14. Colon overuse: Colons belong before lists or examples, not as mid-sentence connectors. "If you're coming from traditional automation: instead of registering event handlers, you describe conditions" adds nothing with the colon. Rewrite to let the point stand: "Describing when the scheduler should fire works best as plain English." Same meaning, no crutch punctuation.
-15. Boldface overuse: Don't bold every proper noun, acronym, or list entry label. Use `**` sparingly; prefer plain text like `7. AI vocabulary: ...` instead of `7. **AI vocabulary.** ...` to keep plaintext clutter low.
+15. Boldface overuse: Don't bold every proper noun, acronym, UI button/label, or list entry label. Avoid `**` entirely unless distinguishing a critical technical contrast; default to plain text or quotes/backticks (e.g. 'Install Now', `Edit Ranges`, `k_x, k_y`). Prefer plain text like `7. AI vocabulary: ...` instead of `7. **AI vocabulary.** ...` to keep plaintext clutter low.
 16. Inline-header lists: The tell is a bold label and colon that restates the line: "**Performance:** Performance improved...". Convert those to prose. A bold lead-in that ends in a period, names the item, and is followed by genuinely new detail ("**Schema in TypeScript.** Tables live in one file.") is fine, not a tell.
 17. Title case headings: Use sentence case.
 18. Decorative emojis: Remove from headings and bullets.
