@@ -1,9 +1,9 @@
 ---
-name: subagent
+name: subagents
 description: Invoke a subagent using "flash" or "flash-lite". Use this ALWAYS when spawning a subagent in Antigravity.
 ---
 
-# Subagent
+# Subagents
 
 When you invoke a subagent in Antigravity, you must pass "Model": "flash" or "Model": "flash_lite" to the invoke_subagent tool. Only make exceptions if specifically requested by the user.
 

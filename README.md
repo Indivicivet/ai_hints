@@ -43,7 +43,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [pitch-lower](./skills/pitch-lower/SKILL.md): Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
 - [refine-from-feedback](./skills/refine-from-feedback/SKILL.md): Diagnose agent mistakes or flawed prompt/skill guidance and update governing skills or AGENTS.md.
 - [skill-writing](./skills/skill-writing/SKILL.md): Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
-- [subagent](./skills/subagent/SKILL.md): Guardrails for Antigravity to ensure that a pro model will always use a lighter model for subagents unless explicitly requested.
+- [subagents](./skills/subagents/SKILL.md): Guardrails for Antigravity to ensure that a pro model will always use a lighter model for subagents unless explicitly requested.
 - [transcribe](./skills/transcribe/SKILL.md): Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 
 ### Coding-specific
