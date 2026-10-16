@@ -64,7 +64,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 Engineering principles and discipline adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) (Lauren Tan / `@poteto`):
 
 - [principle-fix-root-causes](./skills/principle-fix-root-causes/SKILL.md): Trace bugs to root cause; no symptom-guard band-aids. (essentially unmodified)
-- [principle-guard-the-context-window](./skills/principle-guard-the-context-window/SKILL.md): Route bulk payloads to subagents; keep context window clean. (essentially unmodified)
+- [principle-guard-the-context-window](./skills/principle-guard-the-context-window/SKILL.md): Route bulk payloads to subagents; keep context window clean. (modified just to mention the `subagents` skill)
 - [principle-laziness-protocol](./skills/principle-laziness-protocol/SKILL.md): Minimal diffs, flat call chains, and deletion over addition. (essentially unmodified)
 - [principle-minimize-reader-load](./skills/principle-minimize-reader-load/SKILL.md): Fewer layers of indirection and reduced mutable state. (essentially unmodified)
 - [unslop](./skills/unslop/SKILL.md): Cut AI tells, fluff, and puffery from writing. (Diverged: adapted rules around bolding, colons, em dashes, shorthand like e.g./i.e., and streamlined guidelines)

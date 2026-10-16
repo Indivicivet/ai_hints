@@ -10,6 +10,8 @@ The context window is finite and non-renewable within a session. Every token sho
 
 **Why:** Context overflow degrades reasoning quality, creates compression artifacts, and halts progress.
 
+If in Antigravity, use the `subagents` skill to ensure appropriate subagents.
+
 **Pattern:**
 - **Isolate large payloads.** Route verbose outputs, screenshots, and large documents to subagents. The main context gets summaries, not raw data.
 - **Keep frequently used content inline.** Templates and references used on every invocation belong in the skill file, not in separate files that cost a read each time.
