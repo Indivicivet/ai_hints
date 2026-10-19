@@ -2,6 +2,7 @@
 
 import argparse
 from pathlib import Path
+import sys
 
 root = Path(__file__).resolve().parent
 claude_dir = Path.home() / ".claude"
@@ -37,7 +38,30 @@ if args.individual:
         if skill.is_dir():
             link_dir(skill, skills_dest / skill.name)
 else:
-    link_dir(skills_src, skills_dest)
+    if skills_dest.is_symlink() or skills_dest.is_junction():
+        skills_dest.unlink()
+        skills_dest.symlink_to(skills_src, target_is_directory=True)
+        print(f"Linked {skills_src.name} -> {skills_dest}")
+    elif skills_dest.is_dir():
+        if any(skills_dest.iterdir()):
+            print(
+                f"\nError: {skills_dest} already exists as a non-empty directory.\n"
+                "To keep your existing Claude skills and link these skills alongside them,\n"
+                "please run with:\n\n"
+                "    python claude_setup.py --individual\n",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        skills_dest.rmdir()
+        skills_dest.symlink_to(skills_src, target_is_directory=True)
+        print(f"Linked {skills_src.name} -> {skills_dest}")
+    elif skills_dest.exists():
+        skills_dest.unlink()
+        skills_dest.symlink_to(skills_src, target_is_directory=True)
+        print(f"Linked {skills_src.name} -> {skills_dest}")
+    else:
+        skills_dest.symlink_to(skills_src, target_is_directory=True)
+        print(f"Linked {skills_src.name} -> {skills_dest}")
 
 claude_md = claude_dir / "CLAUDE.md"
 reference_line = f"@{(root / 'rules' / 'AGENTS.md').as_posix()}"
