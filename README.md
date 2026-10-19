@@ -33,7 +33,9 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 
 Check whether ~/.codex/AGENTS.md exists first. If you have instructions there and want to also use this AGENTS.md, you will need to manually copy the instructions across.
 
-Run the helper script -- this will register the plugin, which for Codex is just the skills, and then hardlink .codex/AGENTS.md to this folder's rules/AGENTS.md:
+Run the helper script -- this will:
+- Register the plugin, which for Codex is just the skills
+- Hardlink .codex/AGENTS.md to this folder's rules/AGENTS.md
 
 ```
 python codex_setup.py
