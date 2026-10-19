@@ -1,14 +1,23 @@
 """Register skills and instructions for Claude Code."""
 
+import argparse
 from pathlib import Path
 
 root = Path(__file__).resolve().parent
 claude_dir = Path.home() / ".claude"
+skills_src = root / "skills"
 skills_dest = claude_dir / "skills"
-skills_dest.mkdir(parents=True, exist_ok=True)
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument(
+    "--individual",
+    action="store_true",
+    help="Symlink each skill individually into ~/.claude/skills/<skill-name>",
+)
+args = parser.parse_args()
 
 
-def link_skill(src_dir: Path, target_dir: Path) -> None:
+def link_dir(src_dir: Path, target_dir: Path) -> None:
     if target_dir.is_symlink() or target_dir.is_junction():
         target_dir.unlink()
     elif target_dir.is_dir():
@@ -20,9 +29,15 @@ def link_skill(src_dir: Path, target_dir: Path) -> None:
     print(f"Linked {src_dir.name} -> {target_dir}")
 
 
-for skill in sorted((root / "skills").iterdir()):
-    if skill.is_dir():
-        link_skill(skill, skills_dest / skill.name)
+claude_dir.mkdir(parents=True, exist_ok=True)
+
+if args.individual:
+    skills_dest.mkdir(parents=True, exist_ok=True)
+    for skill in sorted(skills_src.iterdir()):
+        if skill.is_dir():
+            link_dir(skill, skills_dest / skill.name)
+else:
+    link_dir(skills_src, skills_dest)
 
 claude_md = claude_dir / "CLAUDE.md"
 reference_line = f"@{(root / 'rules' / 'AGENTS.md').as_posix()}"
