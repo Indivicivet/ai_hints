@@ -23,11 +23,13 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 ### Claude Code
 
 (untested)
+Run the helper script:
 
-~/.claude/CLAUDE.md:
 ```
-@c:/path/to/repos/ai_hints/rules/AGENTS.md
+python claude_setup.py
 ```
+
+This will symlink/junction each skill individually into `~/.claude/skills/<skill-name>` (dynamically resolving this repo's location) and set up or append `@/path/to/rules/AGENTS.md` in `~/.claude/CLAUDE.md`.
 
 ### Codex
 
