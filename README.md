@@ -33,7 +33,10 @@ This will symlink/junction each skill individually into `~/.claude/skills/<skill
 
 ### Codex
 
-AGENTS.md: Symlink ~/.codex/AGENTS.md to rules/AGENTS.md (or copy-paste).
+AGENTS.md: Symlink ~/.codex/AGENTS.md to rules/AGENTS.md (or copy-paste), e.g. in admin command prompt:
+```
+mklink "%USERPROFILE%\.codex\AGENTS.md" "%CD%\rules\AGENTS.md"
+```
 
 Skills: Open this repository as a Codex project, restart Codex, then install from the `ai-hints-local` marketplace in the Plugins Directory.
 IMPORTANT: Codex caches installed plugins, so refresh on pull.
