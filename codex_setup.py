@@ -2,12 +2,14 @@
 
 import json
 from pathlib import Path
+from shutil import copytree
 
 
 root = Path(__file__).parent
 home = Path.home()
 marketplace_path = home / ".agents" / "plugins" / "marketplace.json"
 agents_path = home / ".codex" / "AGENTS.md"
+plugin_path = home / ".codex" / "plugins" / "ai-hints"
 
 if agents_path.exists() and agents_path.read_text().strip():
     raise RuntimeError(
@@ -21,19 +23,18 @@ agents_path.parent.mkdir(parents=True, exist_ok=True)
 agents_path.hardlink_to(root / "rules" / "AGENTS.md")
 
 marketplace_path.parent.mkdir(parents=True, exist_ok=True)
+copytree(root, plugin_path, dirs_exist_ok=True)
 marketplace = {"name": "personal-local", "plugins": []}
 if marketplace_path.exists():
     marketplace = json.loads(marketplace_path.read_text())
 
 marketplace["plugins"] = [
-    plugin
-    for plugin in marketplace["plugins"]
-    if plugin["name"] != "ai-hints"
+    plugin for plugin in marketplace["plugins"] if plugin["name"] != "ai-hints"
 ]
 marketplace["plugins"].append(
     {
         "name": "ai-hints",
-        "source": {"source": "local", "path": str(root.relative_to(home)).replace("\\", "/")},
+        "source": {"source": "local", "path": "./.codex/plugins/ai-hints"},
         "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
         "category": "Productivity",
     }
