@@ -30,12 +30,12 @@ python claude_setup.py
 
 This will symlink the entire `~./claude/skills` folder to this repo, and set up or append `@/path/to/rules/AGENTS.md` in `~/.claude/CLAUDE.md`.
 
-Alternatively, if you have other Claude skills, you can run:
+Note: Claude Chat / Cowork run in Anthropic cloud. You can manually upload skills in the app but must do this one at a time.
 
+Alternatively, if you have other Claude skills, you can run:
 ```
 python claude_setup.py --individual
 ```
-
 This will symlink/junction each skill individually into `~/.claude/skills/<skill-name>` instead.
 IMPORTANT： This means you must re-run the script whenever new skills are added.
 
