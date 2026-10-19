@@ -33,16 +33,11 @@ This will symlink/junction each skill individually into `~/.claude/skills/<skill
 
 ### Codex
 
+AGENTS.md: Symlink ~/.codex/AGENTS.md to rules/AGENTS.md (or copy-paste).
+
 Install the plugin in the Codex desktop app: [open AI Hints](codex://plugins/ai-hints?marketplacePath=C%3A%5Cpersonal_repos%5Cai_hints%5C.agents%5Cplugins%5Cmarketplace.json), then select **Install**. Alternatively, open this repository as a Codex project, restart the app, and install AI Hints from the `ai-hints-local` marketplace in the Plugins Directory.
 
 IMPORTANT: Codex caches installed plugins, so refresh on pull.
-
-Optionally link this repository's global instructions:
-```
-python codex_setup.py
-```
-
-If your global `AGENTS.md` already has instructions, the script prints it and leaves it unchanged.
 
 ## Skills
 
