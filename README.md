@@ -33,14 +33,18 @@ This will symlink/junction each skill individually into `~/.claude/skills/<skill
 
 ### Codex
 
-Check whether ~/.codex/AGENTS.md exists first. If you have instructions there and want to also use this AGENTS.md, you will need to manually copy the instructions across.
-
-Run the helper script -- this will:
-- Register the plugin, which for Codex is just the skills
+Run the helper script `python codex_setup.py`. This will:
+- Register the skills via a `ai-hints-local` marketplace
 - Hardlink .codex/AGENTS.md to this folder's rules/AGENTS.md
+Then restart Codex, select `ai-hints-local` in the Plugins Directory, and install.
 
+IMPORTANT: Codex caches installed plugins, so refresh on pull.
+
+Note: If your global `AGENTS.md` already has instructions, the AGENTS.md will not be updated.
+
+Alternatively, you can register the marketplace manually (you still need to install the skills within Codex):
 ```
-python codex_setup.py
+codex plugin marketplace add .
 ```
 
 ## Skills
