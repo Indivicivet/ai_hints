@@ -1,8 +1,6 @@
 """Register skills and instructions for Claude Code."""
 
 from pathlib import Path
-import os
-import sys
 
 root = Path(__file__).resolve().parent
 home = Path.home()
@@ -25,27 +23,15 @@ def link_skill(src_dir: Path, target_dir: Path) -> None:
         return
     elif target_dir.exists():
         target_dir.unlink()
-
-    try:
-        target_dir.symlink_to(src_dir, target_is_directory=True)
-        print(f"Symlinked {src_dir.name} -> {target_dir}")
-    except OSError:
-        # Fallback to junction on Windows if developer mode / symlink privileges are not enabled
-        if sys.platform == "win32":
-            import _winapi
-
-            _winapi.CreateJunction(str(src_dir), str(target_dir))
-            print(f"Junctioned {src_dir.name} -> {target_dir}")
-        else:
-            raise
+    target_dir.symlink_to(src_dir, target_is_directory=True)
+    print(f"Symlinked {src_dir.name} -> {target_dir}")
 
 
 for skill in sorted(skills_src.iterdir()):
     if skill.is_dir():
         link_skill(skill, skills_dest / skill.name)
 
-# Format path with forward slashes for cross-platform and Claude @ references
-agents_path_str = agents_md.as_posix()
+agents_path_str = agents_md.as_posix()  # forward slashes
 reference_line = f"@{agents_path_str}"
 
 if not claude_md.exists() or not claude_md.read_text(encoding="utf-8").strip():
