@@ -31,10 +31,12 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 
 ### Codex
 
-Check whether ~/.codex/AGENTS.md exists first. If so, this will fail; delete it if you don't have anything there.
+Check whether ~/.codex/AGENTS.md exists first. If you have instructions there and want to also use this AGENTS.md, you will need to manually copy the instructions across.
 
-``` powershell
-New-Item -ItemType HardLink -Path "$HOME\.codex\AGENTS.md"  -Target "c:/path/to/repos/ai_hints/rules/AGENTS.md"
+Run the helper script -- this will register the plugin, which for Codex is just the skills, and then hardlink .codex/AGENTS.md to this folder's rules/AGENTS.md:
+
+```
+python codex_setup.py
 ```
 
 ## Skills
