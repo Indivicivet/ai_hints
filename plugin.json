@@ -1,4 +1,6 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-hints",
+  "version": "0.1.0",
   "description": "Developer rules, formatting standards, and productivity skills."
 }
