@@ -4,6 +4,8 @@ Agent rules, coding guidelines, formatting standards, opinionated workflows, ski
 
 ## Setup
 
+### Antigravity
+
 ~/.gemini/config/plugins.json:
 ```
 {
@@ -25,6 +27,14 @@ and add "... repo folder .../" to Antigravity settings -> General -> File Access
 ~/.claude/CLAUDE.md:
 ```
 @c:/path/to/repos/ai_hints/rules/AGENTS.md
+```
+
+### Codex
+
+Check whether ~/.codex/AGENTS.md exists first. If so, this will fail; delete it if you don't have anything there.
+
+``` powershell
+New-Item -ItemType HardLink -Path "$HOME\.codex\AGENTS.md"  -Target "c:/path/to/repos/ai_hints/rules/AGENTS.md"
 ```
 
 ## Skills
