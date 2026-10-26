@@ -68,6 +68,8 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [skill-writing](./skills/skill-writing/SKILL.md): Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
 - [subagents](./skills/subagents/SKILL.md): Guardrails for Antigravity to ensure that a pro model will always use a lighter model for subagents unless explicitly requested.
 - [transcribe](./skills/transcribe/SKILL.md): Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
+- [tutoring](./skills/tutoring/SKILL.md): Interactive study companion alongside a textbook or course using `course_summary.md`, `user_progress.md`, and `agent_details.md`.
+- [tutoring-setup](./skills/tutoring-setup/SKILL.md): Ingest and digest learning material and initialize the study files (`course_summary.md`, `user_progress.md`, `agent_details.md`) for use with `tutoring`.
 
 ### Coding-specific
 
