@@ -66,6 +66,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [pitch-lower](./skills/pitch-lower/SKILL.md): Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
 - [refine-from-feedback](./skills/refine-from-feedback/SKILL.md): Diagnose agent mistakes or flawed prompt/skill guidance and update governing skills or AGENTS.md.
 - [skill-writing](./skills/skill-writing/SKILL.md): Draft, review, or refine an agent skill with anti-slop and opinionated constraints.
+- [stem-split](./skills/stem-split/SKILL.md): Extract or combine `.wav` tracks from `.stem.m4a` files using `ffmpeg` with unity-gain `amix`.
 - [subagents](./skills/subagents/SKILL.md): Guardrails for Antigravity to ensure that a pro model will always use a lighter model for subagents unless explicitly requested.
 - [transcribe](./skills/transcribe/SKILL.md): Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 - [tutoring](./skills/tutoring/SKILL.md): Interactive study companion alongside a textbook or course using `course_summary.md`, `user_progress.md`, and `agent_details.md`.
