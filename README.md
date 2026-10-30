@@ -58,6 +58,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 
 - [bro-rethink](./skills/bro-rethink/SKILL.md): Stop and re-evaluate when thinking was lazy, ungrounded, or superficial.
 - [concise](./skills/concise/SKILL.md): Cut filler, omit preamble, and compress output to bare essentials.
+- [competent-contractor](./skills/competent-contractor/SKILL.md): Work autonomously with timed review windows before committing to rabbit holes.
 - [create-global-skill](./skills/create-global-skill/SKILL.md): Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
 - [create-project-skill](./skills/create-project-skill/SKILL.md): Draft a project-specific skill inside the current workspace repository.
 - [direct-web-cite](./skills/direct-web-cite/SKILL.md): Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
