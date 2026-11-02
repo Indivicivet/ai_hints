@@ -11,7 +11,7 @@ Use the ask-tell interface instead of `cma.fmin`, always evaluate the initial po
 
 ## Rules
 
-1. Always set `eval_initial_x: True`. By default, CMA-ES never evaluates $x_0$ itself. If the distribution drifts before finding a better point, `es.result.xbest` can end up worse than your starting guess.
+1. Manually evaluate the initial point $x_0$ before the ask-tell loop. By default, `CMAEvolutionStrategy` never evaluates $x_0$ itself (and `eval_initial_x` is only a `cma.fmin` argument, not a valid `inopts` key). Evaluate `f0 = objective_function(x0)` and register it via `es.best.update([x0], es.sent_solutions, [f0], 1)` and `es.countevals += 1` so `es.result.xbest` cannot end up worse than your starting guess if the distribution drifts.
 2. Use the explicit ask-tell loop. Avoid `cma.fmin`. An explicit `es.ask()` and `es.tell()` loop keeps evaluations decoupled for parallel execution, hardware batching, inspection, or custom termination. Default to `maxiter` rather than `maxfevals`.
 3. Inspect `es.stop()`. It returns a dictionary of active stopping conditions. Check whether the run ended due to target fitness (`ftarget`), convergence tolerances (`tolx`, `tolfun`), or budget exhaustion (`maxevals`).
 4. Restore the best evaluated configuration when done, not the final state. Use `es.result.xbest` by default because it respects boundary rankings and noise re-evaluations. Only track best candidates manually if evaluations produce auxiliary side-effects (e.g. saving model weights, calibration matrices, or plots) that `cma` cannot record, or if fallback penalty scores could cause `xbest` to point to an aborted evaluation.
@@ -36,12 +36,15 @@ es = cma.CMAEvolutionStrategy(
     sigma0=1,
     inopts={
         "bounds": [-5.0, 5.0],
-        "eval_initial_x": True,
         "ftarget": 1e-8,
         "maxiter": 50,
         "verbose": -9,
     },
 )
+
+f0 = objective_function(x0)
+es.best.update([x0], es.sent_solutions, [f0], 1)
+es.countevals += 1
 
 while not es.stop():
     solutions = es.ask()
