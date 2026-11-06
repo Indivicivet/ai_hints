@@ -5,7 +5,11 @@ description: Put the main result and primary action first. Cut redundant heading
 
 # Visual layout
 
+Keep a clean, simple UI without too much "AI fanciness".
+
 Decide what the user should see first and do next. Spend the most space on these. Make them big, bold, and readable.
+
+## Specific guidelines
 
 - Design the layout around the main canvas, key results, charts, and primary controls before adding labels or subheadings.
 - Cut titles, intros, section headings, group-box titles, and card labels that merely name the obvious thing next to them. Do not give each widget or component its own heading, subtitle, and caption. In web UIs, never spend a full-width vertical banner just on a title or logo; fold identity into the toolbar or sidebar.
