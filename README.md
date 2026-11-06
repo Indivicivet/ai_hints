@@ -62,7 +62,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [create-global-skill](./skills/create-global-skill/SKILL.md): Draft a cross-cutting, personal skill in ai_hints regardless of active workspace.
 - [create-project-skill](./skills/create-project-skill/SKILL.md): Draft a project-specific skill inside the current workspace repository.
 - [direct-web-cite](./skills/direct-web-cite/SKILL.md): Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
-- [make-key-information-dominant](./skills/make-key-information-dominant/SKILL.md): Give the main result and action visual priority, and cut labels that repeat context.
+- [make-key-information-dominant](./skills/make-key-information-dominant/SKILL.md): Give the main result and action visual priority, and cut labels that repeat context across GUIs, dashboards, and documents.
 - [mathematical-audience](./skills/mathematical-audience/SKILL.md): Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
 - [pitch-higher](./skills/pitch-higher/SKILL.md): Nudge the last explanation a step higher in assumed competence and density.
 - [pitch-lower](./skills/pitch-lower/SKILL.md): Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
