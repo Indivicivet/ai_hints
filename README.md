@@ -63,7 +63,6 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [create-project-skill](./skills/create-project-skill/SKILL.md): Draft a project-specific skill inside the current workspace repository.
 - [direct-web-cite](./skills/direct-web-cite/SKILL.md): Verify and extract verbatim quotes from live web pages as unmanipulated HTML citations.
 - [interaction](./skills/interaction/SKILL.md): Choose fast, direct UI controls (radio buttons over small dropdowns, synced slider + numeric input, disabled slider wheel).
-- [make-key-information-dominant](./skills/make-key-information-dominant/SKILL.md): Give the main result and action visual priority, and cut labels that repeat context across GUIs, dashboards, and documents.
 - [mathematical-audience](./skills/mathematical-audience/SKILL.md): Frame technical concepts for a mathematically experienced reader without assuming niche domain vocabulary.
 - [pitch-higher](./skills/pitch-higher/SKILL.md): Nudge the last explanation a step higher in assumed competence and density.
 - [pitch-lower](./skills/pitch-lower/SKILL.md): Nudge the last explanation a step lower in assumed background, unpacking jargon and steps.
@@ -74,6 +73,7 @@ Skills developed based on workflow, desired assumptions etc -- typically using G
 - [transcribe](./skills/transcribe/SKILL.md): Extract image text with optional kana reading/pronunciation (`ro`), translation (`tl`), and nuance explanation (`explain`).
 - [tutoring](./skills/tutoring/SKILL.md): Interactive study companion alongside a textbook or course using `course_summary.md`, `user_progress.md`, and `agent_details.md`.
 - [tutoring-setup](./skills/tutoring-setup/SKILL.md): Ingest and digest learning material and initialize the study files (`course_summary.md`, `user_progress.md`, `agent_details.md`) for use with `tutoring`.
+- [visual-layout](./skills/visual-layout/SKILL.md): Give the main result and action visual priority, and cut labels that repeat context across GUIs, dashboards, and documents.
 
 ### Coding-specific
 

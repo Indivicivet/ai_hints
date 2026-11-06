@@ -16,4 +16,4 @@ description: Guidelines for building desktop GUIs. Default to PySide6 (or Qt if 
 
 ## General notes
 - Use the `interaction` skill when designing controls (`QSpinBox`/`QDoubleSpinBox` synced with sliders, ignoring `wheelEvent` on sliders, and avoiding unnecessary dropdowns).
-- If presenting visual information, use the `make-key-information-dominant` skill.
+- If presenting visual information, use the `visual-layout` skill.

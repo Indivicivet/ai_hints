@@ -1,9 +1,9 @@
 ---
-name: make-key-information-dominant
-description: Put the main result and primary action first. Cut redundant headings, captions, and chrome. Use when creating multimedia outputs where the focus is on visualization or interaction, including GUIs, dashboards, and visual reports.
+name: visual-layout
+description: Put the main result and primary action first. Cut redundant headings, captions, and framing. Use when creating visual outputs where the focus is on visualization or interaction, including GUIs, dashboards, and visual reports.
 ---
 
-# Make key information dominant
+# Visual layout
 
 Decide what the user should see first and do next. Spend the most space on these. Make them big, bold, and readable.
 
