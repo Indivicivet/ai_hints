@@ -19,3 +19,7 @@ description: Guidelines for building desktop GUIs. Default to PySide6 (or Qt if 
 - Avoid hardcoded background or text colors that break across light and dark modes. Rely on default system palette roles so the UI tracks the OS theme cleanly.
 - If a specific fixed theme (always dark or always light) makes sense for the use case, raise it with the user first before forcing it.
 - Explicit colors are allowed when the content itself demands it, such as image viewers, data visualizations, or status badges.
+
+## General notes
+
+If presenting visual information, use the `make-key-information-dominant` skill.
